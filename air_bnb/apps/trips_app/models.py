@@ -40,4 +40,17 @@ class Trips(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+class Reviews(models.Model):
+    listing_id = models.ForeignKey(Listings)
+    user_id = models.ForeignKey(Users)
+    accuracy = models.IntegerField()
+    communication = models.IntegerField()
+    cleanliness = models.IntegerField()
+    location = models.IntegerField()
+    check_in = models.IntegerField()
+    value = models.IntegerField()
+    description = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
 
