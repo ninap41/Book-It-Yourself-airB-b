@@ -15,6 +15,7 @@ def registration(request):
     last_name = request.POST['last_name']
     birthday = request.POST['birthday']
     email = request.POST['email']
+    phone_number = request.POST['phone_number']
     password = request.POST['password']
     if len(errors):
         for error in errors:
@@ -22,7 +23,7 @@ def registration(request):
         return redirect('/')
     else:
         hashed_password = bcrypt.hashpw(password.encode(), bcrypt.gensalt(12))
-        Users.objects.create(first_name=first_name, last_name=last_name, email=email, birthday=birthday, password=hashed_password)
+        Users.objects.create(first_name=first_name, last_name=last_name, email=email, birthday=birthday, password=hashed_password, phone_number=phone_number)
         user_login = Users.objects.get(first_name=first_name, last_name=last_name, email=email, birthday=birthday)
         user_login_id = user_login.id
         request.session['name'] = first_name
