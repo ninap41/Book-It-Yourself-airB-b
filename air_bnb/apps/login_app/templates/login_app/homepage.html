@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/homepage.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/skeleton.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/normalize.css' %}" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <script>
+    
+//     $('#Login_Register').on('click', '[data-toggle="lightbox"]', function(event) {
+//                 event.preventDefault();
+//                 $(this).ekkoLightbox();
+//             });
+    </script>
+    <title>HomeStay</title>
+</head>
+<body>
+
+<div class="Hidden_On_Render">
+    <div class="Header">
+            <img src="{% static 'login_app/images/air.jpg' %}" alt="My image"/ class="Logo"><!-- logo -->
+        <input type="search" value="try ..." id="searchbar"> <button class="Submit"></button> <!-- search bar --> 
+        <div class="Nav">
+         
+            <a href=""><p>Host</p></a>
+            <a href=""><p>Bands</p></a>
+            <a href=""><p>Messages</p></a>
+            <a href=""><p>Listings</p></a>
+
+            <a href=""><p>Logout</p></a>
+            <button>Become a Host</button>
+        </div>
+    </div>
+
+    
+
+    <div class="Wrapper">
+
+                <h3>Explore BIY</h3>
+
+              
+
+
+                <div class="Explore_Icons">
+                    <span>Homes</span>
+                </div>
+
+                <div class="Explore_Icons">
+                        <span>Experiences</span>
+                </div>
+
+                <div class="Explore_Icons">
+                        <span>Resturaunts</span>
+                </div>
+
+
+            <BR>
+
+
+                <h3>Experiences</h3>
+                <div class="Explore_Icons one column">
+                        <img src="{% static 'login_app/images/arch1.jpg' %}" alt="an image">
+                </div>
+                <div class="Explore_Icons one column">
+                        <img src="{% static 'login_app/images/arch3.jpg' %}" alt="an image">   
+                </div>
+                <div class="Explore_Icons one column">
+                        <img src="{% static 'login_app/images/arch2.jpg' %}" alt="an image">   
+                </div>
+                <div class="Explore_Icons one column">
+                        <img src="{% static 'login_app/images/arch4.jpg' %}" alt="an image">
+                </div>
+                <div class="Explore_Icons one column">
+                        <img src="{% static 'login_app/images/arch5.jpg' %}" alt="an image">   
+                </div>
+                <div class="Explore_Icons one column">
+                        <img src="{% static 'login_app/images/arch6.jpg' %}" alt="an image">   
+                </div>
+
+
+            <BR>
+
+                <h3>Experiences</h3>
+        
+
+
+    </div>
+</div>  <!--Hidden on Render-->
+    
+</body>
+</html>

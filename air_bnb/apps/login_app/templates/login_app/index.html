@@ -3,37 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/index.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/skeleton.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/normalize.css' %}" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
+ 
+    <title>BIY </title>
 </head>
+
 <body>
-    
-    <h1>Registration</h1>
-        {% if messages %}
+   
+          <img src="{% static 'login_app/images/background_image.jpg' %}" alt="My image" class="background_image"><!-- logo -->
+    <div class="Center_Wrap">
+
+
+        <img src="{% static 'login_app/images/logo.png' %}" alt="">
+
+        <p class="Slogan">Book It Yourself:
+            <BR> A community for musicians and fans dedicated supporting local DIY music scenes across the country. 
+        </p>
+            
+                <div class="Align">
+            <h1>Registration</h1>
+            <form action="/registration" method="POST" id="Form_Contain  two columns">
+                {% csrf_token %}
+                First Name: <input type="text" name="first_name"><br />
+                Last Name: <input type="text" name="last_name"><br />
+                Birthday: <input type="date" name="birthday"><br />
+                Email: <input type="email" name="email"><br />
+                Password: <input type="password" name="password"><br />
+                Confirm Password: <input type="password" name="confirmed_password"><br />
+                <input type="submit" value="Register">
+            </form>
+                </div>
+                <div class="Align">
+            <h1>Login</h1>
+            <form action="/login" method="POST" id="Form_Contain two columns">
+                {% csrf_token %}
+                Email: <input type="email" name="email"><br />
+                Password: <input type="password" name="password"><br />
+                <input type="submit" value="Log In">
+            </form>
+                </div>
+            {% if messages %}
             <ul>
             {% for message in messages %}
                 <li>{{ message }}</li>
             {% endfor %}
             </ul>
-        {% endif %}
-    <form action="/registration" method="POST">
-        {% csrf_token %}
-        First Name: <input type="text" name="first_name"><br />
-        Last Name: <input type="text" name="last_name"><br />
-        Birthday: <input type="date" name="birthday"><br />
-        Email: <input type="email" name="email"><br />
-        Password: <input type="password" name="password"><br />
-        Confirm Password: <input type="password" name="confirmed_password"><br />
-        <input type="submit" value="Register">
-    </form>
+            {% endif %}
+            </div>
+ 
 
-    <h1>Login</h1>
-    <form action="/login" method="POST">
-        {% csrf_token %}
-        Email: <input type="email" name="email"><br />
-        Password: <input type="password" name="password"><br />
-        <input type="submit" value="Log In">
-    </form>
 
 </body>
 </html>
