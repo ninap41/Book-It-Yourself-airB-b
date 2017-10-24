@@ -3,9 +3,12 @@ from __future__ import unicode_literals
 
 from django.db import models
 from ..login_app.models import Users
-from ..trips_app.models import Listings
+from ..host_app.models import Listings
 
 # Create your models here.
+
+# class MessageManager(models.Model):
+
 
 class Messages(models.Model):
     sender = models.ForeignKey(Users)
