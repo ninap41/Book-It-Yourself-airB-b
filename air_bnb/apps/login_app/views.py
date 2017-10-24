@@ -28,7 +28,7 @@ def registration(request):
         user_login_id = user_login.id
         request.session['name'] = first_name
         request.session['user_id'] = user_login_id
-        return redirect('/friends')
+        return redirect('/homepage')
 
 
 def login(request):
@@ -47,7 +47,7 @@ def login(request):
     if password_check == True:
         request.session['name'] = user_login.first_name
         request.session['user_id'] = user_login.id
-        return redirect('/friends')
+        return redirect('/homepage')
     else:
         errors.append('Email/Password is incorrect')
         for error in errors:
@@ -56,6 +56,10 @@ def login(request):
 
 def logout(request):
     request.session['name'] = ''
-    return redirect(index)
+    return redirect('/')
+
+def homepage(request):
+    print "Homepage"
+    return render(request, "login_app/homepage.html")
 
 # $2b$12$nmLxzfTq2Ixi7Hi39hpG.unJPRxdcnvWw57KAZOJbTWAnulB17ZCe
