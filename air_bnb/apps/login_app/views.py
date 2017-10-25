@@ -23,7 +23,7 @@ def registration(request):
         return redirect('/')
     else:
         hashed_password = bcrypt.hashpw(password.encode(), bcrypt.gensalt(12))
-        Users.objects.create(first_name=first_name, last_name=last_name, email=email, birthday=birthday, password=hashed_password, phone_number=phone_number)
+        Users.objects.create(first_name=first_name, last_name=last_name, email=email, birthday=birthday, password=hashed_password, phone_number=phone_number, type_of_user=1)
         user_login = Users.objects.get(first_name=first_name, last_name=last_name, email=email, birthday=birthday)
         user_login_id = user_login.id
         request.session['name'] = first_name
@@ -53,6 +53,14 @@ def login(request):
         for error in errors:
             messages.warning(request, error)
         return redirect('/')
+
+def update_user(request):
+    current_user = Users.objects.get(id=request.session['user_id'])
+    # Eventually add Venues.objects.get(host_id=current_user) and Musicians.objects.get(musician_id=current_user) to the context
+    context = {
+        'user': current_user
+    }
+    return render(request, 'login_app/update_user.html', context)
 
 def logout(request):
     request.session['name'] = ''

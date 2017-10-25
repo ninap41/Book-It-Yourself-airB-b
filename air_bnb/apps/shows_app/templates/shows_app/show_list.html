@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <input type="search" name="location">
+        <input type="submit" value="Look Up">
+    </form>
+  
+
+    <h2>heres the listings of current shows</h2>
+    <a href="/homepage">Home</a><br />
+    <a href="/">Log Out</a>
+
+
+    <table width="1000px">
+            <thead>
+                <th>host</th>
+                <th>Venue</th>
+                <th>capacity</th>
+                <th>Booze?</th>
+                <th>Noise Level</th>
+                <th>Gear Available</th>
+                <th>Max # of bands per show</th>
+                <th>Location Type</th>
+                <th>Past Performers</th>
+                <th>Join a Show!</th>
+            </thead>
+            
+                {% for venue in venues %}
+                <tr>
+                <td>{{venue.host_id.first_name}}</td>
+                <td>{{venue.space_name}}</td>
+                <td>{{venue.capacity}}</td>
+                <td>{{venue.dry_zone}}</td>
+                <td>{{venue.noise_level}}</td>
+                <td>{{venue.gear_availability}}</td>
+                <td>{{venue.bill_capacity}}</td>
+                <td>{{venue.location_type}}</td>
+                <td>{{venue.past_performers}}</td>
+                <td><a href="/shows/venues/{{venue.id}}">Hop On A Bill</a></td>
+                
+                
+                </tr>
+                {%endfor%}
+            
+        </table>
+    
+    <!-- THIS WILL GO TO A FORM to musician submission form-->
+</body>
+</html>

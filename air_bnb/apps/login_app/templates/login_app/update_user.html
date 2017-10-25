@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit</title>
+</head>
+<body>
+    <a href="/homepage">Home</a><br />
+    <a href="/logout">Log Out</a><br />
+    <!-- THIS EDIT LINK DOESNT WORK YET!!! MAKE EDIT PROFILE PAGE THIS WILL BE DYNAMIC -->
+    <a href="/edit">Edit Profile</a> 
+    {% if user.type_of_user == 1 %}
+        <h1>Welcome, {{ user.first_name }}</h1>
+        <p>{{user.email}}</p>
+        <p>{{user.type_of_user}}</p>
+    {% endif %}
+    {% if user.type_of_user == 2 %}
+        <h1>Welcome, {{ user.first_name }}</h1>
+        <p>{{user.birthday}}</p>
+        <p>{{ user.type_of_user }}</p>
+    {% endif %}
+    {% if user.type_of_user == 3 %}
+        <h1>Welcome, {{ user.first_name }}</h1>
+        <p>{{user.phone_number}}</p>
+        <p>{{ user.type_of_user }}</p>
+    {% endif %}
+
+</body>
+</html>

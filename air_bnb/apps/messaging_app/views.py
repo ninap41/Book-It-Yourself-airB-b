@@ -4,5 +4,6 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 
 # Create your views here.
-def homepage(request):
-        return redirect('/')
+def inbox(request):
+        return render(request, "messaging_app/inbox.html")
+        
