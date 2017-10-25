@@ -44,11 +44,11 @@ class UserManager(models.Manager):
 class Users(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
+    type_of_user = models.IntegerField(null=True)
     birthday = models.DateField()
     phone_number = models.CharField(max_length=255, null=True)
     email = models.CharField(max_length=255)
     password = models.CharField(max_length=255)
-    type_of_user = models.IntegerField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = UserManager()
