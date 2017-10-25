@@ -19,6 +19,7 @@
     <form action="/host/create_venue" method="POST">
         {% csrf_token %}
         Venue Name: <input type="text" name="space_name"><br>
+        Venue Bio: <textarea name="venue_details" cols="30" rows="10"></textarea><BR>
         Booze:<select name="dry_zone"><br>
             <option value="yes">Yes</option>
             <option value="no">No</option>

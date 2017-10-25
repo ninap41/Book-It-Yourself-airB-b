@@ -51,4 +51,5 @@ class Users(models.Model):
     type_of_user = models.IntegerField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    user_bio = models.TextField(null=True)
     objects = UserManager()

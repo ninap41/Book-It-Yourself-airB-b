@@ -25,7 +25,23 @@
         <h1>Welcome, {{ user.first_name }}</h1>
         <p>{{user.phone_number}}</p>
         <p>{{ user.type_of_user }}</p>
+        <h3>Add an upcoming show to your venue page:</h3>
+        <form action="/shows/add_show" method="post">
+            {% csrf_token %}
+            <input type="date" name="show_date">
+            Add Line-up: <input type="text" name="bands">
+            <input type="submit" value="Add Show">
+        </form>
     {% endif %}
-
+    {% if user.type_of_user == 4 %}
+        <h1>Welcome, {{user.first_name}}</h1>
+        <p>{{user.type_of_user}}</p>
+        <h3>Add an upcoming show to your venue page:</h3>        
+        <form action="/shows/add_show" method="post">
+            {% csrf_token %}
+            <input type="date" name="show_date">
+            <input type="submit" value="Add Show">
+        </form>
+    {% endif %}
 </body>
 </html>
