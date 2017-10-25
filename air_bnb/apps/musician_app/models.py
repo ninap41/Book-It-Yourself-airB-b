@@ -16,7 +16,7 @@ class Photos(models.Model):
 
 class Musicians(models.Model):
     musician_id = models.ForeignKey(Users)
-    name = models.CharField(max_length=255)
+    artist_name = models.CharField(max_length=255)
     other_profiles = models.TextField()
     email = models.CharField(max_length=255)
     bio = models.TextField()

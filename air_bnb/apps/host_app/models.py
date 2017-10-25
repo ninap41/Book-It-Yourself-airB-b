@@ -11,6 +11,7 @@ from ..login_app.models import Users
 
 class Venues(models.Model):
     host_id = models.ForeignKey(Users, null=True, blank=True)
+    venue_details = models.TextField(null=True)
     space_name = models.CharField(max_length=255)
     dry_zone = models.CharField(max_length=5)
     noise_level = models.CharField(max_length=255)
@@ -34,8 +35,8 @@ class Venues(models.Model):
 
 class Shows(models.Model):
     venue_id = models.ForeignKey(Venues)
-    bands = models.TextField()
-    show_date = models.DateTimeField()
+    bands = models.TextField(null=True)
+    show_date = models.DateField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

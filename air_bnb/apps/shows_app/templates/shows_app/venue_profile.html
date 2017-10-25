@@ -20,9 +20,17 @@
 
     <h1>Upcoming Shows</h1>
     <!-- Add a show id at the end of the link below -->
-    <p>10/28- Indisposed, Slow Mass <a href="/shows/join">Join Show</a></p> 
+    
     {% for show in shows %}
-        
+        <hr />
+        <p>{{ show.show_date }}</p>
+        {% if show.bands %}
+            <p>{{ show.bands }}</p>
+        {% else %}
+            <p>No Bands Yet!</p>
+        {% endif %}
+        <a href="/shows/join/{{show.id}}">Join Show!</a>
+        <a href="/shows/delete_show/{{show.id}}">Cancel Show</a>
     {% endfor %}
 </body>
 </html>
