@@ -25,21 +25,25 @@
             <BR> A community for musicians and fans dedicated supporting local DIY music scenes across the country. 
         </p>
             
-                <div class="Align">
+        <div class="Align">
             <h1>Registration</h1>
             <form action="/registration" method="POST" id="Form_Contain  two columns">
                 {% csrf_token %}
                 First Name: <input type="text" name="first_name"><br />
                 Last Name: <input type="text" name="last_name"><br />
                 Birthday: <input type="date" name="birthday"><br />
+<<<<<<< HEAD
                 Phone Number: <input type="tel" name="phone_number"><BR>
+=======
+                Phone Number: <input type="tel" name="phone_number"><br />
+>>>>>>> upstream/master
                 Email: <input type="email" name="email"><br />
                 Password: <input type="password" name="password"><br />
                 Confirm Password: <input type="password" name="confirmed_password"><br />
                 <input type="submit" value="Register">
             </form>
-                </div>
-                <div class="Align">
+        </div>
+        <div class="Align">
             <h1>Login</h1>
             <form action="/login" method="POST" id="Form_Contain two columns">
                 {% csrf_token %}
@@ -47,7 +51,7 @@
                 Password: <input type="password" name="password"><br />
                 <input type="submit" value="Log In">
             </form>
-                </div>
+        </div>
             {% if messages %}
             <ul>
             {% for message in messages %}
@@ -56,7 +60,7 @@
             </ul>
 
             {% endif %}
-            </div>
+    </div>
  
 
 
