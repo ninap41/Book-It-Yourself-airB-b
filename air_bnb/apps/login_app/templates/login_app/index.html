@@ -32,7 +32,11 @@
                 First Name: <input type="text" name="first_name"><br />
                 Last Name: <input type="text" name="last_name"><br />
                 Birthday: <input type="date" name="birthday"><br />
+<<<<<<< HEAD
+                Phone Number: <input type="tel" name="phone_number"><BR>
+=======
                 Phone Number: <input type="tel" name="phone_number"><br />
+>>>>>>> upstream/master
                 Email: <input type="email" name="email"><br />
                 Password: <input type="password" name="password"><br />
                 Confirm Password: <input type="password" name="confirmed_password"><br />
@@ -49,15 +53,15 @@
             </form>
         </div>
             {% if messages %}
-                <ul>
-                {% for message in messages %}
-                    <li>{{ message }}</li>
-                {% endfor %}
-                </ul>
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+
             {% endif %}
     </div>
  
-       
 
 
 

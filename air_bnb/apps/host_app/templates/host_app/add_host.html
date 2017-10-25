@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <!-- below lines not working -->
+    <link rel="stylesheet" type="text/css" href="{% static 'host_app/styles/styles.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'host_app/styles/skeleton.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'host_app/styles/normalize.css' %}" />
+    
+    <title>Document</title>
+</head>
+<body>
+    <h1>Become a Host...</h1>
+<!-- need to add not preferred options below -->
+
+    <form action="/host/create_venue" method="POST">
+        {% csrf_token %}
+        Venue Name: <input type="text" name="space_name"><br>
+        Booze:<select name="dry_zone"><br>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br>
+        Overnight Stay: <select name="overnight_option"><br>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+    </select><br>
+        Suggested Donations: <select name="suggested_donation"><br>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select><br>
+        Promotions: <select name="promotions"><br>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select><br>
+        Location Type: <select name="location_type"><br><br>
+                <option value="residential">Residential</option>
+                <option value="commercial">Commercial</option>
+            </select><br>
+        Noise Level: <select name="noise_level"><br>
+                <option value="soft">Soft</option>
+                <option value="medium">Medium</option>
+                <option value="loud">Loud</option>
+            </select><br>
+        Capacity: <input type="number" name="capacity"><br>
+        Gears Provided: <input type="text" name="gear_availability"><br>
+        Start Time: <input type="time" name="show_start"><br>
+        End Time: <input type="time" name="show_end"><br>
+        How many bands on the bill? <select name="bill_capacity"><br>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5+">5+</option>
+        </select><br>
+        Past Performers: <input type="text" name="past_performers"><br>
+        Street Address: <input type="text" name="street_address"><br>
+        City: <input type="text" name="city"><br>
+        State: <input type="text" name="state"><br>
+        Country: <input type="text" name="country"><br>
+        Zip Code: <input type="text" name="zip_code"><br>
+        <input type="submit" name="sumbit" value="Host Now!">
+    </form>
+
+
+    
+</body>
+</html>

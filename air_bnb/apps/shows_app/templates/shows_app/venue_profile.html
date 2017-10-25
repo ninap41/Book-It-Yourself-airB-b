@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/shows">More Venues</a><br />
+    <a href="/homepage">Home</a><br />
+    <a href="/">Log Out</a>
+
+    <h1>{{venue.space_name}}</h1>
+    Host: {{venue.host_id.first_name}} <br />
+    Reviews
+    Pics
+    Other Shits
+
+
+    <h1>Upcoming Shows</h1>
+    <!-- Add a show id at the end of the link below -->
+    <p>10/28- Indisposed, Slow Mass <a href="/shows/join">Join Show</a></p> 
+    {% for show in shows %}
+        
+    {% endfor %}
+</body>
+</html>

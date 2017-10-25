@@ -3,6 +3,7 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
+import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
@@ -10,22 +11,20 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
+        ('host_app', '0001_initial'),
+        ('login_app', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Users',
+            name='Messages',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('first_name', models.CharField(max_length=255)),
-                ('last_name', models.CharField(max_length=255)),
-                ('birthday', models.DateField()),
-                ('phone_number', models.CharField(max_length=255, null=True)),
-                ('email', models.CharField(max_length=255)),
-                ('password', models.CharField(max_length=255)),
-                ('type_of_user', models.IntegerField(null=True)),
+                ('message', models.TextField()),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
+                ('receiver', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='host_app.Venues')),
+                ('sender', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='login_app.Users')),
             ],
         ),
     ]
