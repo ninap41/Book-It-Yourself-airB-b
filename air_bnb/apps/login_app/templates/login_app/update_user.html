@@ -6,30 +6,60 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/update_user.css' %}" />
+    
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/skeleton.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/normalize.css' %}" />
+   
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
     <title>Edit</title>
 </head>
 <body>
-    <a href="/homepage">Home</a><br />
-    <a href="/logout">Log Out</a><br />
+    <div class="Header">
+            <img src="{% static 'login_app/images/tiny_logo.png' %}" alt="My image" class="Logo">
+            
+        
+            
+           <h3> Welcome,  {% if user.type_of_user == 1 %}
+            {{ user.first_name }}
+            {% endif %}
+
+            {% if user.type_of_user == 2 %}
+            {{ user.first_name }}
+            {% endif %}
+
+            {% if user.type_of_user == 3 %}
+            {{ user.first_name }}
+            {% endif %}
+
+            {% if user.type_of_user == 4 %}
+            {{ user.first_name }}
+            {% endif %}</h3>
+
+            <p><a href="/homepage">Home</a></p>
+            <p><a href="/logout">Log Out</a></p>
     <!-- THIS EDIT LINK DOESNT WORK YET!!! MAKE EDIT PROFILE PAGE THIS WILL BE DYNAMIC -->
-    <a href="/edit">Edit Profile</a> 
+    <p><a href="/edit">Edit Profile</a></p>
+      
+    </div> <!-- Header -->
+
+
+
+    <div class="Body_Content">
     {% if user.type_of_user == 1 %}
-        <h1>Welcome, {{ user.first_name }}</h1>
+  
         <p>{{user.email}}</p>
         <p>{{user.type_of_user}}</p>
+  
     {% endif %}
     {% if user.type_of_user == 2 %}
-        <h1>Welcome, {{ user.first_name }}</h1>
+        
         <p>{{user.birthday}}</p>
         <p>{{ user.type_of_user }}</p>
     {% endif %}
     {% if user.type_of_user == 3 %}
-        <h1>Welcome, {{ user.first_name }}</h1>
+      
         <p>{{user.phone_number}}</p>
-        <p>{{ user.type_of_user }}</p>
+        <!-- <p>{{ user.type_of_user }}</p> -->
         <h3>Add an upcoming show to your venue page:</h3>
         <form action="/shows/add_show" method="post">
             {% csrf_token %}
@@ -48,5 +78,7 @@
             <input type="submit" value="Add Show">
         </form>
     {% endif %}
+        </div> <!-- body content div end --> 
+       
 </body>
 </html>

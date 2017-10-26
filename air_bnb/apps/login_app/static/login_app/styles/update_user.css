@@ -1,0 +1,68 @@
+body {
+    background-color: white;
+  
+}
+
+
+* {
+    margin: 0px auto;
+    padding: 0px auto;
+}
+
+.Header {
+    vertical-align: top;
+    margin: 10px auto;
+    display: inline-block;
+    height: 100px;
+    width: 100%;
+    padding-top: 10px;
+    padding-left: 20px;
+    background-color: white;
+    background: linear-gradient(white, white,white,white, rgba(255, 255, 255, 0.059));
+    
+}    
+
+
+/* button {
+    display:inline-block;
+    background-image: url("search.png") no-repeat;
+    background-size: 20px;
+    width: 25px;
+    height: 25px;
+    
+
+}  */
+
+
+
+.Nav p  {
+    display:inline-block;
+    margin: 0px 10px;
+     
+}
+
+h1 {
+    font-size: 20px;
+}
+
+
+.Nav {
+    vertical-align: top;
+    display: inline;
+    padding-left: 10px;
+    overflow: hidden;
+    padding: 10px 0px;
+      
+    }
+
+
+a {
+    text-decoration: None; 
+    color: black;
+}
+
+p {
+    display: inline-block;
+}
+    
+
