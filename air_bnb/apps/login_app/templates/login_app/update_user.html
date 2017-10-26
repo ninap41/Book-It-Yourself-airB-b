@@ -70,6 +70,7 @@
         <form action="/shows/add_show" method="post">
             {% csrf_token %}
             <input type="date" name="show_date">
+            Add Line-up: <input type="text" name="bands">
             <input type="submit" value="Add Show">
         </form>
     {% endif %}

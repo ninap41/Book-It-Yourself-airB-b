@@ -20,7 +20,7 @@
 
     <h1>Join show for {{show.show_date}} at {{venue.space_name}}</h1>
 
-    <form action="/shows/band_submission" method="POST">
+    <form action="/shows/band_submission/{{venue.id}}/{{show.id}}" method="POST">
         {% csrf_token %}
         Artist Name: <input type="text" name="artist_name"><br />
         Bio: <textarea name="bio" cols="30" rows="10"></textarea><br />

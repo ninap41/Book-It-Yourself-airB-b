@@ -16,7 +16,24 @@
     <a href="/homepage"><img src="{% static 'login_app/images/tiny_logo.png' %}" alt="My image" class="Logo">   </a>   
     <a href="/shows">More Venues</a><br />
     <a href="/homepage">Home</a><br />
-    <a href="/">Log Out</a>
+    <a href="/">Log Out</a> <br />
+
+
+    {% if venue.host_id.id == user.id %}
+        <h1>TEST</h1>
+        {% for musician in musicians %}
+            {% for info in musician %}
+                <h1>***NEW BAND SUBMISSION***</h1>
+                <p>{{info.artist_name}}</p>
+                <p>{{info.bio}}</p>
+                <p>{{info.other_profiles}}</p>
+                <p>{{info.email}}</p>
+                <a href="/shows/accept_band/{{venue.id}}/{{info.show_id}}/{{info.id}}">Accept</a>
+                <a href="/shows/deny_band/{{venue.id}}/{{info.id}}">Deny</a>
+                <hr />
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
 
     <h1>{{venue.space_name}}</h1>
     Host: {{venue.host_id.first_name}} <br />
@@ -24,6 +41,11 @@
     Pics
     Other Shits
 
+    {% if messages %}
+    {% for message in messages %}
+        <p>{{message}}</p>
+    {% endfor %}
+    {% endif %}
 
     <h1>Upcoming Shows</h1>
     <!-- Add a show id at the end of the link below -->
@@ -36,8 +58,33 @@
         {% else %}
             <p>No Bands Yet!</p>
         {% endif %}
-        <a href="/shows/join/{{show.id}}">Join Show!</a>
+        <a href="/shows/join/{{venue.id}}/{{show.id}}">Join Show!</a>
+        {% if venue.host_id.id == request.session.user_id %}
         <a href="/shows/delete_show/{{show.id}}">Cancel Show</a>
+        {% endif %}
     {% endfor %}
+
+    <h1>Recent Reviews</h1>
+    {% for review in reviews %}
+        <p> {{review.user_id.first_name}} gave {{venue.space_name}} {{review.rating}} stars</p>
+        <p> "{{review.review_description}}"</p>
+        <hr />
+    {% endfor %}
+
+    <h3>Post A Review:</h3>
+    <form action="/shows/create_review/{{venue.id}}" method="POST">
+        {% csrf_token %}
+        Name: <input type="text" name="user_id"> <br />
+        How was your experience at {{venue.space_name}}? <br />
+        <textarea name="review_description" cols="30" rows="10"></textarea> <br />
+        Rating from 1-5: <select name="rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select> <br />
+        <input type="submit" value="Post Review">
+    </form>
 </body>
 </html>

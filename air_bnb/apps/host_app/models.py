@@ -42,7 +42,7 @@ class Shows(models.Model):
 
 class Reviews(models.Model):
     venue_id = models.ForeignKey(Venues)
-    musicians_id = models.ForeignKey(Users)
+    user_id = models.ForeignKey(Users)
     rating = models.IntegerField()
     review_description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
