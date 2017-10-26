@@ -1,7 +1,5 @@
 body {
     background-color: white;
-  
-  
 
 }
 
@@ -10,30 +8,35 @@ body {
     padding: 0px auto;
 }
 
-
 .Header {
-    vertical-align: top;
-    margin: 0px auto;
-    display: block;
-    height: 70px;
-    width: 100%;
-    padding-top: 10px;
-    padding-left: 20px;
-    position: fixed;;
-    /* background-color: white; */
-    background: linear-gradient(white, white,white,white, rgba(255, 255, 255, 0.059));
-    
-}   
-
-h3 {
-    margin: 0px auto;
+    padding: 10px;
 }
 
-.Three_Center{
+
+.Header p{
+    display: inline-block;
+    vertical-align: top;
+    font-size: 3rem;
+    float: right;
+    padding-right: 2%;
+}
+
+.Header button {
+    margin-top: 10px;
+    float: right;
+    margin-right: 2%;
+}
+
+
+
+
+
+
+.Three_Center {
    margin-bottom: 100px;
 }
 
-.Nav p  {
+/* .Nav p  {
     display:inline-block;
     
 }
@@ -41,34 +44,121 @@ h3 {
 .Nav input {
     display:inline-block;
     height: 20px;
-}
+} */
 
-#searchbar {
-    height:20px;
-    vertical-align: top;
 
-}
 
-.Submit button {
-    display:inline-block;
-    background-image: url("search.png") no-repeat;
-    background-size: 20px;
-    width: 25px;
-    height: 25px;
-    
 
-}
 
 .Wrapper {
     width: 100%;
     padding-top: 100px;
+    margin-top: 1%;
     border-top: 5px solid rgba(128, 128, 128, 0.623);
     
 }
 
-.Band_Icons {
-    
+
+
+a {
+    text-decoration: None; 
+    color: black;
 }
+
+
+/* overlay  with band icons business */
+
+
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+   height: 98%;
+    width: 120%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(0, 0, 0, 0.353);
+  }
+
+  .Band_Icons {
+    position: relative;
+    width: 50%;
+  }
+
+
+.Band_Icons:hover .overlay {
+    opacity: 1;
+  }
+
+
+  .text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
+
+
+
+
+/* overlay business */
+
+
+
+
+/* OVERLAY WITH VENUE  */
+
+
+
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 98%;
+    width: 120%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(0, 0, 0, 0.538);
+  }
+
+.Venue_Icons {
+    position: relative;
+    width: 100%;
+  }
+
+
+.Venue_Icons:hover .overlay {
+    opacity: 1;
+    
+  }
+
+
+  .text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    text-align: center;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
+
+
+
+
+
+/* OVERLAY WITH VENURE */
 
 
 
@@ -86,6 +176,8 @@ h3 {
 }
 
 .Logo  {
+    width: 5%;
+    height: 5%;
     margin-left: 200px;
     margin: 0px auto;
     padding: 0px;

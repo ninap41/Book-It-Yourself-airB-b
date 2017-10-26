@@ -7,8 +7,10 @@
 
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/homepage.css' %}" />
+    
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/skeleton.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/normalize.css' %}" />
+    
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
     <script>
     
@@ -23,34 +25,35 @@
 
 <div class="Hidden_On_Render">
     <div class="Header">
-        <img src="{% static 'login_app/images/tiny_logo.png' %}" alt="My image"/ class="Logo">
         <div class="Nav">
-            <a href="/messages/inbox"><p>Messages</p></a>
+ <a href="/homepage"><img src="{% static 'login_app/images/tiny_logo.png' %}" alt="My image" class="Logo">   </a>   
+           
             <a href="/shows/"><p>Venues</p></a>
             <a href="/update_user"><p>Profile</p></a>
             <a href="/logout"><p>Logout</p></a>
-            <a href="/host/add_host"><button>Become a Host</button></a>
-        </div>
-    </div>
-
-    
-
+            <a href="/host/add_host"><button>Host</button></a>
+   
     <div class="Wrapper">
 
-      
-
-         
-       
-
                 <h3 class="Bands">Bands</h3>
+                
                 <div class="Band_Icons three columns">
-                        <img src="{% static 'login_app/images/oso-oso-1.jpg' %}" alt="an image">
+                        <img class="Band_Venue"  src="{% static 'login_app/images/oso-oso-1.jpg' %}" alt="an image">
+                        <div class="overlay">
+                                <div class="text"><h3>Oso Oso</h3></div>
+                        </div>  
                 </div>
                 <div class="Band_Icons three columns">
-                        <img src="{% static 'login_app/images/81.jpg' %}" alt="an image">   
+                        <img class="Band_Venue"  src="{% static 'login_app/images/81.jpg' %}" alt="an image"> 
+                        <div class="overlay">
+                                <div class="text"><h3>Raein</h3></div>
+                        </div>   
                 </div>
                 <div class="Band_Icons three columns">
-                        <img src="{% static 'login_app/images/COMMUOVERE-by-Blaire-Norton-Photography-1.jpg' %}" alt="an image">   
+                        <img class="Band_Venue"  src="{% static 'login_app/images/COMMUOVERE-by-Blaire-Norton-Photography-1.jpg' %}" alt="an image"> 
+                        <div class="overlay">
+                                <div class="text"><h3>Commuovere</h3></div>
+                        </div>  
                 </div>
         </div>
         
@@ -58,17 +61,26 @@
 
    
 
-                <h3 class="three column">Venues</h3>
+            <a class="three column" href="/shows/"><h3>Venues</h3></a>  
           
 
             <div class="Venue_Icons three columns">
-                    <img src="{% static 'login_app/images/bandphoto10.png' %}" alt="an image">
+                    <img class="Band_Venue"  src="{% static 'login_app/images/bandphoto10.png' %}" alt="an image">
+                    <div class="overlay">
+                            <div class="text"><h3>Francisco Funhouse</h3></div>
+                    </div>  
             </div>
             <div class="Venue_Icons three columns">
-                    <img src="{% static 'login_app/images/95-og.jpg' %}" alt="an image">   
+                    <img class="Band_Venue"  src="{% static 'login_app/images/95-og.jpg' %}" alt="an image">  
+                    <div class="overlay">
+                        <div class="text"><h3>The Dollhouse</h3></div>
+                    </div>   
             </div>
             <div class="Venue_Icons three columns">
-                    <img src="{% static 'login_app/images/indisposedphotoshootchosen4.jpg' %}" alt="an image">   
+                    <img class="Band_Venue" src="{% static 'login_app/images/indisposedphotoshootchosen4.jpg' %}" alt="an image"> 
+                    <div class="overlay">
+                            <div class="text"><h3>The House</h3></div>
+                    </div>  
             </div>
  
 

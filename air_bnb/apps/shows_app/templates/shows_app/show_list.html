@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/show_list.css' %}" />
+ 
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/skeleton.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/normalize.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/show_list.css' %}" />
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
     <title>Document</title>
 </head>
 <body>
+    <div class="Nav">
     <h1>Look up venues:</h1>
     <form action="/shows/" method="POST">
         {% csrf_token %}
@@ -19,18 +21,23 @@
         <input type="search" name="state" placeholder="State"><br />
         <input type="submit" value="Look Up">
     </form>
+        <p><a id="Nav" href="/homepage"> Home</a></p>
+        <p> <a  id="Nav" href="/">Log Out</a></p> 
+    </div>
+
+
+
+    <div id="Wrapper">
   
 
-    <h2>heres the listings of current shows</h2>
-    <a href="/homepage">Home</a><br />
-    <a href="/">Log Out</a>
-
+    <h2>Current shows</h2>
+   
 
     <table width="1000px">
             <thead>
-                <th>host</th>
-                <th>Venue</th>
-                <th>capacity</th>
+                <th>  host </th>
+                <th>  Venue  </th>
+                <th>  capacity  </th>
                 <th>Booze?</th>
                 <th>Noise Level</th>
                 <th>Gear Available</th>
@@ -62,6 +69,8 @@
                 {%endfor%}
             
         </table>
+
+    </div>
     
     <!-- THIS WILL GO TO A FORM to musician submission form-->
 </body>
