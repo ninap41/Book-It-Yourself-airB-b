@@ -8,13 +8,18 @@
 </head>
 <body>
     <h1>This is where the form will be to join a show</h1>
+    <!-- if ban -->
 
-    <form action="/shows/band_submission">
-        Artist Name: <input type="text" name="name"><br />
+    <h1>Join show for {{show.show_date}} at {{venue.space_name}}</h1>
+
+    <form action="/shows/band_submission/{{venue.id}}/{{show.id}}" method="POST">
+        {% csrf_token %}
+        Artist Name: <input type="text" name="artist_name"><br />
         Bio: <textarea name="bio" cols="30" rows="10"></textarea><br />
         Social Media Links: <input type="text" name="other_profiles"><br />
         Email: <input type="email" name="email"><br />
-        <input type="submit" value="Join">
+        <input type="submit" value="Join Show">
     </form>
+   
 </body>
 </html>
