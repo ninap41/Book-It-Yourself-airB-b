@@ -11,6 +11,7 @@ from ..login_app.models import Users
 
 class Venues(models.Model):
     host_id = models.ForeignKey(Users, null=True, blank=True)
+    photo = models.ImageField(upload_to='documents/%Y/%m/%d/', null=True, blank=True)
     venue_details = models.TextField(null=True)
     space_name = models.CharField(max_length=255)
     dry_zone = models.CharField(max_length=5)

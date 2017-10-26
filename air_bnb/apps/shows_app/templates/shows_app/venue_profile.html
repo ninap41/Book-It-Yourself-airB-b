@@ -39,6 +39,7 @@
 
     <h1>{{venue.space_name}}</h1>
     Host: {{venue.host_id.first_name}} <br />
+    <img src="/media/{{venue.photo}}" alt="">
     Reviews
     Pics
     Other Shits
@@ -60,6 +61,7 @@
         {% else %}
             <p>No Bands Yet!</p>
         {% endif %}
+        <!-- Where is type of user? -->
         <a href="/shows/join/{{venue.id}}/{{show.id}}">Join Show!</a>
         {% if venue.host_id.id == request.session.user_id %}
         <a href="/shows/delete_show/{{show.id}}">Cancel Show</a>

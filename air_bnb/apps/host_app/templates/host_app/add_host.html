@@ -16,7 +16,9 @@
 <body>
         <div id="Wrapper">          
     <h1>Become a Host...</h1>
-    <form action="/host/create_venue" method="POST">
+<!-- need to add not preferred options below -->
+
+    <form action="/host/create_venue" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         Venue Name: <input type="text" name="space_name"><br>
         Venue Bio: <textarea name="venue_details" cols="30" rows="10"></textarea><BR>
@@ -28,6 +30,7 @@
         <option value="yes">Yes</option>
         <option value="no">No</option>
     </select><br>
+        Photos: <input type="file" name="venue_image" accept="image/*">
         Suggested Donations: <select name="suggested_donation"><br>
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
