@@ -58,19 +58,52 @@ td {
   
 }
 
+/* table default on each index */
+
 a {
     text-decoration: none;
 }
 
 #Wrapper {
-    width: 50%;
-    margin: 0px auto;
-
+    text-align: center;
+    text-align: center;
+    width:  50%;
+    height: 50%;
+    background-color: white;
+    top: 10%; 
+    top: 10%; 
+    position: relative; 
+    margin: 0px auto;  
 }
 
-.Nav p,.Nav a {
+.Nav p{
     display: inline-block;
     padding-right: 100px;
     vertical-align: top;
     font-size: 3rem;
+    border-bottom: 2px black;
+    float: right;
+  
+
+}
+.Nav a {
+    display: inline-block;
+    padding-right: 100px;
+    vertical-align: top;
+    font-size: 3rem;
+    border-bottom: 2px black;
+  
+
+}
+
+.Nav2 {
+    text-align: center;
+    text-align: center;
+    width:  50%;
+    height: 50%;
+    background-color: white;
+    top: 10%; 
+    top: 10%; 
+    position: relative; 
+    margin: 0px auto;  
 }
