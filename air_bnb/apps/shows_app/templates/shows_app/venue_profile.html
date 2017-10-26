@@ -8,19 +8,17 @@
     
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/skeleton.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/normalize.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'shows_app/styles/venue_profile.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/venue_profile.css' %}" />
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <div class="Header">
-        <a href="/homepage"><img src="{% static 'login_app/images/tiny_logo.png' %}" alt="My image" class="Logo">   </a>   
-        <a href="/shows"><p>More Venues</p></a>
-        <a href="/homepage"><p>Home</p></a>
-        <a href="/"><p>Log Out</p></a> 
-    </div>  
+    <a href="/homepage"><img src="{% static 'login_app/images/tiny_logo.png' %}" alt="My image" class="Logo">   </a>   
+    <a href="/shows">More Venues</a><br />
+    <a href="/homepage">Home</a><br />
+    <a href="/">Log Out</a> <br />
 
-<div id="Wrapper">
+
     {% if venue.host_id.id == user.id %}
         <h1>TEST</h1>
         {% for musician in musicians %}
@@ -90,7 +88,5 @@
         </select> <br />
         <input type="submit" value="Post Review">
     </form>
-
-</div>
 </body>
 </html>
