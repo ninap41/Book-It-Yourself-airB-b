@@ -7,20 +7,16 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/skeleton.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/normalize.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'shows_app/styles/join_show.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/join_show.css' %}" />
     
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
     <title>Join Show</title>
 </head>
 <body>
-
      <a href="/homepage"><img src="{% static 'login_app/images/tiny_logo.png' %}" alt="My image" class="Logo">   </a>   
         
-    <!-- <h1>This is where the form will be to join a show</h1> -->
-
-    
+    <h1>This is where the form will be to join a show</h1>
     <!-- if ban -->
-    <div id="Wrapper">
 
     <h1>Join show for {{show.show_date}} at {{venue.space_name}}</h1>
 
@@ -32,7 +28,6 @@
         Email: <input type="email" name="email"><br />
         <input type="submit" value="Join Show">
     </form>
-    </div>
    
 </body>
 </html>
