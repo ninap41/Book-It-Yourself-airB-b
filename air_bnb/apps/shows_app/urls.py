@@ -12,4 +12,6 @@ urlpatterns = [
         url(r'^create_review/(?P<venue_id>\d+)$', views.create_review),
         url(r'^join/(?P<venue_id>\d+)/(?P<show_id>\d+)$', views.join_show),
         url(r'^band_submission/(?P<venue_id>\d+)/(?P<show_id>\d+)$', views.band_submission),
+        url(r'^accept_band/(?P<venue_id>\d+)/(?P<show_id>\d+)/(?P<musician_id>\d+)$', views.accept_band),
+        url(r'^deny_band/(?P<venue_id>\d+)/(?P<musician_id>\d+)$', views.deny_band),
   ]

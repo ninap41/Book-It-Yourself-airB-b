@@ -15,8 +15,8 @@ class Photos(models.Model):
     photo = models.ImageField()
 
 class Musicians(models.Model):
-    show_id = models.ForeignKey(Shows, null=True)
-    musician_id = models.ForeignKey(Users)
+    show = models.ForeignKey(Shows, null=True)
+    user = models.ForeignKey(Users)
     artist_name = models.CharField(max_length=255)
     other_profiles = models.TextField()
     email = models.CharField(max_length=255)

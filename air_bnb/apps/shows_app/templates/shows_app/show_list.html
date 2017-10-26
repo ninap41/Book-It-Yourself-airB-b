@@ -12,8 +12,11 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="">
-        <input type="search" name="location">
+    <h1>Look up venues:</h1>
+    <form action="/shows/" method="POST">
+        {% csrf_token %}
+        <input type="search" name="city" placeholder="City"><br />
+        <input type="search" name="state" placeholder="State"><br />
         <input type="submit" value="Look Up">
     </form>
   
@@ -33,6 +36,8 @@
                 <th>Gear Available</th>
                 <th>Max # of bands per show</th>
                 <th>Location Type</th>
+                <th>City</th>
+                <th>State</th>
                 <th>Past Performers</th>
                 <th>Join a Show!</th>
             </thead>
@@ -47,6 +52,8 @@
                 <td>{{venue.gear_availability}}</td>
                 <td>{{venue.bill_capacity}}</td>
                 <td>{{venue.location_type}}</td>
+                <td>{{venue.city}}</td>
+                <td>{{venue.state}}</td>
                 <td>{{venue.past_performers}}</td>
                 <td><a href="/shows/venues/{{venue.id}}">Hop On A Bill</a></td>
                 

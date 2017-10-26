@@ -20,13 +20,16 @@
     {% if venue.host_id.id == user.id %}
         <h1>TEST</h1>
         {% for musician in musicians %}
-            <h1>***NEW BAND SUBMISSION***</h1>
-            <p>{{musician.artist_name}}</p>
-            <p>{{musician.other_profiles}}</p>
-            <p>{{musician.email}}</p>
-            <a href="#">Accept</a>
-            <a href="#">Deny</a>
-            <hr />
+            {% for info in musician %}
+                <h1>***NEW BAND SUBMISSION***</h1>
+                <p>{{info.artist_name}}</p>
+                <p>{{info.bio}}</p>
+                <p>{{info.other_profiles}}</p>
+                <p>{{info.email}}</p>
+                <a href="/shows/accept_band/{{venue.id}}/{{info.show_id}}/{{info.id}}">Accept</a>
+                <a href="/shows/deny_band/{{venue.id}}/{{info.id}}">Deny</a>
+                <hr />
+            {% endfor %}
         {% endfor %}
     {% endif %}
 

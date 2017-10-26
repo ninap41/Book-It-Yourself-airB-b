@@ -67,7 +67,6 @@ def logout(request):
     return redirect('/')
 
 def homepage(request):
-    print "Homepage"
     return render(request, "login_app/homepage.html")
 
 # $2b$12$nmLxzfTq2Ixi7Hi39hpG.unJPRxdcnvWw57KAZOJbTWAnulB17ZCe

@@ -9,21 +9,31 @@ from django.contrib import messages
 
 # Create your views here.
 def venues(request):
-        context = {
-                'venues': Venues.objects.all()
-        }
-        return render(request, 'shows_app/show_list.html', context)
+        try:
+                city = request.POST['city']
+                state = request.POST['state']
+                filtered_venues = Venues.objects.filter(city=city, state=state)
+                context = {
+                        'venues': filtered_venues
+                }
+                return render(request, 'shows_app/show_list.html', context)
+        except:
+                context = {
+                        'venues': Venues.objects.all()
+                }
+                return render(request, 'shows_app/show_list.html', context)
 
 def venue_profile(request, venue_id):
         current_user = Users.objects.get(id=request.session['user_id'])
         current_venue = Venues.objects.get(id=venue_id)
-        shows = Shows.objects.filter(venue_id=venue_id)
-        musicians = []
+        shows = Shows.objects.filter(venue_id=current_venue)
+        musicians = [] 
+        print Musicians.objects.all().values()
         for show in shows:
-                if Musicians.objects.filter(show_id=show):
-                        band = Musicians.objects.filter(show_id=show)
+                print show.id
+                if Musicians.objects.filter(show_id=show.id):
+                        band = Musicians.objects.filter(show_id=show.id)
                         musicians.append(band)
-                        print musicians
         print musicians
         reviews = Reviews.objects.filter(venue_id=venue_id)
         context = {
@@ -76,21 +86,22 @@ def create_review(request, venue_id):
 
 def band_submission(request, venue_id, show_id):
         current_user = Users.objects.get(id=request.session['user_id'])
-        musician_id = current_user
         current_show = Shows.objects.get(id=show_id)
         artist_name = request.POST['artist_name']
         other_profiles = request.POST['other_profiles']
         email = request.POST['email']
         bio = request.POST['bio']
+        print current_show
         try:  
-                current_band = Musicians.objects.get(musician_id=current_user)
+                current_band = Musicians.objects.get(user=current_user)
                 current_band.artist_name = request.POST['artist_name']
                 current_band.other_profiles = request.POST['other_profiles']
                 current_band.email = request.POST['email']
                 current_band.bio = request.POST['bio']
+                current_band.show = current_show
                 current_band.save()
         except:
-                Musicians.objects.create(show_id=current_show, musician_id=musician_id, artist_name=artist_name, other_profiles=other_profiles, email=email, bio=bio)
+                Musicians.objects.create(show=current_show, user=current_user, artist_name=artist_name, other_profiles=other_profiles, email=email, bio=bio)
         if current_user.type_of_user == 3 or current_user.type_of_user == 4:
                 current_user.type_of_user = 4
                 current_user.save()
@@ -101,3 +112,17 @@ def band_submission(request, venue_id, show_id):
         messages.success(request, 'Your submission has been sent!')
 
         return redirect('/shows/venues/{}'.format(venue_id))
+
+def accept_band(request, venue_id, show_id, musician_id):
+        current_band = Musicians.objects.get(id=musician_id)
+        current_show = Shows.objects.get(id=show_id)
+        current_show.bands = current_show.bands+ ', ' + current_band.artist_name
+        current_show.save()
+        current_band.delete()
+        return redirect('/shows/venues/{}'.format(venue_id))
+
+def deny_band(request, venue_id, musician_id):
+        Musicians.objects.get(id=musician_id).delete()
+        return redirect('/shows/venues/{}'.format(venue_id))
+
+
