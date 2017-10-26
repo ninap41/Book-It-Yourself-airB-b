@@ -8,12 +8,21 @@
  
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/skeleton.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/normalize.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/show_list.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'shows_app/styles/show_list.css' %}" />
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
     <title>Document</title>
 </head>
 <body>
+
+    
+       
     <div class="Nav">
+            <a href="/homepage"><img src="{% static 'login_app/images/tiny_logo.png' %}" alt="My image" class="Logo"></a> 
+            <a  href="/homepage"><p>Home</p></a> 
+            
+             <a  href="/"><p>Log Out</p></a> 
+
+    <div class="Nav2">
     <h1>Look up venues:</h1>
     <form action="/shows/" method="POST">
         {% csrf_token %}
@@ -21,14 +30,13 @@
         <input type="search" name="state" placeholder="State"><br />
         <input type="submit" value="Look Up">
     </form>
-        <p><a id="Nav" href="/homepage"> Home</a></p>
-        <p> <a  id="Nav" href="/">Log Out</a></p> 
+    </div>
+       
     </div>
 
 
-
     <div id="Wrapper">
-  
+    
 
     <h2>Current shows</h2>
    
