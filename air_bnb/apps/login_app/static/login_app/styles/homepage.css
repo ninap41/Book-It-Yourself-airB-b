@@ -1,6 +1,7 @@
 body {
     background-color: white;
   
+  
 
 }
 
@@ -24,10 +25,13 @@ body {
     
 }   
 
-.Explore_Icons {
-    width: 200px;
+h3 {
+    margin: 0px auto;
 }
 
+.Three_Center{
+   margin-bottom: 100px;
+}
 
 .Nav p  {
     display:inline-block;
@@ -62,8 +66,8 @@ body {
     
 }
 
-.Explore_Icons img {
-    height: 100%;
+.Band_Icons {
+    
 }
 
 
@@ -95,6 +99,9 @@ body {
     height: 30px;
 }
 
+.Bands {
+    margin-left: 80px;
+}
 
 
 
