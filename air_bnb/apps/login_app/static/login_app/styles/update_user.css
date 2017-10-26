@@ -42,7 +42,7 @@ body {
 }
 
 h1 {
-    font-size: 20px;
+    font-size: 4rem;
 }
 
 
@@ -55,14 +55,27 @@ h1 {
       
     }
 
-
-a {
+/* .Header a {
     text-decoration: None; 
-    color: black;
+} */
+
+.Header p {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 3rem;
+    float: right;
+    padding-right: 2%;
 }
 
-p {
+.Header h3 {
     display: inline-block;
+    vertical-align: top;
+    font-size: 4rem;
+    
 }
+
+
+
+
     
 
