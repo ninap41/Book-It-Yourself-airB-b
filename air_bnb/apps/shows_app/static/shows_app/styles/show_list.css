@@ -1,0 +1,76 @@
+
+/* .Nav {
+    width: 50%;
+
+} */
+
+
+.Header p {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 3rem;
+    float: right;
+    padding-right: 2%;
+}
+
+
+.Header {
+    vertical-align: top;
+    margin: 0px auto;
+    display: block;
+    height: 70px;
+    width: 100%;
+    padding-top: 10px;
+    padding-left: 20px;
+    position: fixed;;
+    /* background-color: white; */
+    background: linear-gradient(white, white,white,white, rgba(255, 255, 255, 0.059));
+    
+}    
+#Nav a{
+    display: inline-block;
+    vertical-align: top;
+}
+
+#Submit{
+    width: 150px;
+    padding-right: 50px;
+}
+
+p {
+
+    vertical-align: top;
+
+}
+
+td {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+th {
+    padding-right: 7px;
+    padding-left: 7px;
+}
+
+td {
+    margin-right: 10px;
+  
+}
+
+a {
+    text-decoration: none;
+}
+
+#Wrapper {
+    width: 50%;
+    margin: 0px auto;
+
+}
+
+.Nav p,.Nav a {
+    display: inline-block;
+    padding-right: 100px;
+    vertical-align: top;
+    font-size: 3rem;
+}

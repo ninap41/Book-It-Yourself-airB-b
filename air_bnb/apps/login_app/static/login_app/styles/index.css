@@ -15,6 +15,9 @@ input {
     margin-top: -200px;
 }
 
+#Submit {
+    padding-left: 20px;
+}
 
 
 .Center_Wrap {
@@ -66,4 +69,7 @@ form input {
 
 }
 
+h1 {
+    font-size: 30px;
+}
 

@@ -40,11 +40,18 @@ def create_venue(request):
                 current_user.type_of_user = 3
         current_user.save()
         
-        Venues.objects.create(host_id=current_user,photo=photo, space_name=space_name, venue_details=venue_details,dry_zone=dry_zone,noise_level=noise_level,capacity=capacity, overnight_option=overnight_option, suggested_donation=suggested_donation, promotions=promotions, gear_availability=gear_availability, show_start=show_start, show_end=show_end, bill_capacity=bill_capacity, location_type=location_type, past_performers=past_performers,street_address=street_address, city=city, state=state, country=country, zip_code=zip_code)
+        Venues.objects.create(host_id=current_user, photo=photo, space_name=space_name, venue_details=venue_details,dry_zone=dry_zone,noise_level=noise_level,capacity=capacity, overnight_option=overnight_option, suggested_donation=suggested_donation, promotions=promotions, gear_availability=gear_availability, show_start=show_start, show_end=show_end, bill_capacity=bill_capacity, location_type=location_type, past_performers=past_performers,street_address=street_address, city=city, state=state, country=country, zip_code=zip_code)
 
-        
-
-        
         return redirect('/shows')
 
+# def simple_upload(request):
+#     if request.method == 'POST' and request.FILES['myfile']:
+#         myfile = request.FILES['myfile']
+#         fs = FileSystemStorage()
+#         filename = fs.save(myfile.name, myfile)
+#         uploaded_file_url = fs.url(filename)
+#         return render(request, '/shows', {
+#             'uploaded_file_url': uploaded_file_url
+#         })
+#     return render(request, '/shows')
 
