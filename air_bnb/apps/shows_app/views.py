@@ -102,6 +102,8 @@ def band_submission(request, venue_id, show_id):
                 current_band.save()
         except:
                 Musicians.objects.create(show=current_show, user=current_user, artist_name=artist_name, other_profiles=other_profiles, email=email, bio=bio)
+        # if current_user.type_of_user == 1:
+        #         current_user.type_of_user = 2
         if current_user.type_of_user == 3 or current_user.type_of_user == 4:
                 current_user.type_of_user = 4
                 current_user.save()
