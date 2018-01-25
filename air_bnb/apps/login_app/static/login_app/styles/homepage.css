@@ -9,22 +9,21 @@ body {
 }
 
 .Header {
-    padding: 10px;
+   
 }
 
 
 .Header p{
     display: inline-block;
     vertical-align: top;
-    font-size: 3rem;
+    padding-top: 1rem;
+    font-size: 1.5rem;
     float: right;
     padding-right: 2%;
 }
 
-.Header button {
-    margin-top: 10px;
-    float: right;
-    margin-right: 2%;
+h3 {
+    color: black;
 }
 
 
@@ -51,10 +50,11 @@ body {
 
 
 .Wrapper {
-    width: 100%;
-    padding-top: 100px;
+    width: 90%;
+    padding-top: 5rem;
+    margin-left:0px;
     margin-top: 1%;
-    border-top: 5px solid rgba(128, 128, 128, 0.623);
+    border-top: 1px solid rgba(128, 128, 128, 0.623);
     
 }
 
@@ -76,8 +76,8 @@ a {
     bottom: 0;
     left: 0;
     right: 0;
-   height: 98%;
-    width: 120%;
+    height: 98%;
+    width: 150%;
     opacity: 0;
     transition: .5s ease;
     background-color: rgba(0, 0, 0, 0.353);
@@ -119,10 +119,10 @@ a {
 
 .overlay {
     position: absolute;
-    top: 0;
+    /* top: 0;
     bottom: 0;
     left: 0;
-    right: 0;
+    right: 0; */
     height: 98%;
     width: 120%;
     opacity: 0;
@@ -141,13 +141,16 @@ a {
     
   }
 
+a:hover .overlay {
+    opacity: 1;
+}
+
 
   .text {
     color: white;
     font-size: 20px;
     position: absolute;
     text-align: center;
-
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -165,19 +168,32 @@ a {
 .Nav {
 
     display:inline-block;
-    padding-left: 10px;
     overflow: hidden;
     padding: 10px 0px;
+ 
   
 }
 
 .Nav p {
-   margin: 0px 10px;
+    /* margin-right:10rem; */
+    font-size:2rem;
+
 }
 
 .Logo  {
     width: 5%;
-    height: 5%;
+    height: 20%;
+    margin-left: 200px;
+    margin: 0px auto;
+    padding: 0px;
+    
+  
+}
+
+.Logo2  {
+    width: 14%;
+    height: 14%;
+    position: absolute;
     margin-left: 200px;
     margin: 0px auto;
     padding: 0px;
@@ -187,12 +203,12 @@ a {
 
 .Nav button {
     display:inline-block;
-    border: 1px solid aqua;
+    border: 1px sxolid aqua;
     height: 30px;
 }
 
 .Bands {
-    margin-left: 80px;
+    margin-left: 6rem;
 }
 
 

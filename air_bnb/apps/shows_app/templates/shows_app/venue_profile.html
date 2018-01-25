@@ -8,54 +8,76 @@
     
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/skeleton.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/normalize.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/venue_profile.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'shows_app/styles/venue_profile.css' %}" />
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <a href="/homepage"><img src="{% static 'login_app/images/tiny_logo.png' %}" alt="My image" class="Logo">   </a>   
-    <a href="/shows">More Venues</a><br />
-    <a href="/homepage">Home</a><br />
-    <a href="/">Log Out</a> <br />
 
+    <div class="Header">
+            <div class="Nav">
+            <a href="/homepage"><img src="{% static 'login_app/images/logo.png' %}" alt="My image" class="Logo">   </a hidden>   
+            <a href="/homepage"><img src="{% static 'login_app/images/logo3.png' %}" alt="My image" class="Logo2">   </a>         
+       
+        <a href="/shows"><p>More Venues</p></a>
+        <a href="/homepage"><p>Home</p></a>
+        <a href="/"><p>Log Out</p></a> 
+        </div>  
+    </div>
 
+<div id="Wrapper">
     {% if venue.host_id.id == user.id %}
-        <h1>TEST</h1>
         {% for musician in musicians %}
             {% for info in musician %}
-                <h1>***NEW BAND SUBMISSION***</h1>
+                <h3>***NEW BAND SUBMISSION***</h3>
+              
                 <p>{{info.artist_name}}</p>
                 <p>{{info.bio}}</p>
                 <p>{{info.other_profiles}}</p>
                 <p>{{info.email}}</p>
                 <a href="/shows/accept_band/{{venue.id}}/{{info.show_id}}/{{info.id}}">Accept</a>
                 <a href="/shows/deny_band/{{venue.id}}/{{info.id}}">Deny</a>
-                <hr />
+          
+                <hr>
             {% endfor %}
         {% endfor %}
     {% endif %}
 
-    <h1>{{venue.space_name}}</h1>
-    Host: {{venue.host_id.first_name}} <br />
+    
+
+    <h3 class="Profile">{{venue.space_name}}  |</h3>
+    <p class="Profile">Host: {{venue.host_id.first_name}} {{venue.host_id.last_name}} <br />
+    Email: {{venue.host_id.email}} </p><br />
+    <p class="Desc"> "{{venue.venue_details}}" -  {{venue.host_id.first_name}} (Host) </p>
+
+<div class="WrapProfile">
+    <div class="Contain_Photo">
     <img src="/media/{{venue.photo}}" alt="">
-    Reviews
-    Pics
-    Other Shits
+    </div>
+
+   
 
     {% if messages %}
     {% for message in messages %}
         <p>{{message}}</p>
     {% endfor %}
     {% endif %}
-
-    <h1>Upcoming Shows</h1>
-    <!-- Add a show id at the end of the link below -->
     
+
+    </div>
+
+
+
+<div class="AlignSections">
+    <h3>Upcoming Shows</h3>
+    <div class="Border">
+   
+    <!-- Add a show id at the end of the link below -->
     {% for show in shows %}
         <hr />
-        <p>{{ show.show_date }}</p>
+        <h4>{{ show.show_date }}</h4>
         {% if show.bands %}
-            <p>{{ show.bands }}</p>
+            <h4>{{ show.bands }}</h4>
         {% else %}
             <p>No Bands Yet!</p>
         {% endif %}
@@ -65,15 +87,12 @@
         <a href="/shows/delete_show/{{show.id}}">Cancel Show</a>
         {% endif %}
     {% endfor %}
-
-    <h1>Recent Reviews</h1>
-    {% for review in reviews %}
-        <p> {{review.user_id.first_name}} gave {{venue.space_name}} {{review.rating}} stars</p>
-        <p> "{{review.review_description}}"</p>
-        <hr />
-    {% endfor %}
-
+    </div>
+</div>
+ 
+<div class="AlignSections">
     <h3>Post A Review:</h3>
+    <div class="Border">
     <form action="/shows/create_review/{{venue.id}}" method="POST">
         {% csrf_token %}
         Name: <input type="text" name="user_id"> <br />
@@ -88,5 +107,29 @@
         </select> <br />
         <input type="submit" value="Post Review">
     </form>
+    </div>
+
+</div>
+
+
+<div class="AlignSections">
+    <h3>Recent Reviews</h3>
+    <div class="Border">
+           
+            {% for review in reviews %}
+                <p> {{review.user_id.first_name}} gave {{venue.space_name}} {{review.rating}} stars</p>
+                <p> "{{review.review_description}}"</p>
+                <hr />
+            {% endfor %}
+        </div>
+    </div>
+
+</div> 
+<!-- wrap profile end -->
+
+</div>
+
+
+
 </body>
 </html>

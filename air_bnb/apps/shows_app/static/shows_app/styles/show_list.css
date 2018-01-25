@@ -1,9 +1,4 @@
 
-/* .Nav {
-    width: 50%;
-
-} */
-
 
 .Header p {
     display: inline-block;
@@ -22,7 +17,7 @@
     width: 100%;
     padding-top: 10px;
     padding-left: 20px;
-    position: fixed;;
+    position: fixed;
     /* background-color: white; */
     background: linear-gradient(white, white,white,white, rgba(255, 255, 255, 0.059));
     
@@ -58,19 +53,99 @@ td {
   
 }
 
+/* table default on each index */
+
 a {
     text-decoration: none;
 }
 
 #Wrapper {
-    width: 50%;
-    margin: 0px auto;
+    
+    text-align: center;
+    width:  50%;
+    height: 50%;
+    background-color: white;
+    top: 10%; 
+    left: -15%; 
+    position: relative; 
+    margin: 0px auto;  
+}
+
+#Wrapper h2{
+    margin-left:10%;
 
 }
 
-.Nav p,.Nav a {
+.Nav p{
+    display: inline-block;
+    padding-right: 100px;
+    vertical-align: top;
+    padding-top: 1rem;
+    font-size: 1.5rem;
+   
+    border-bottom: 2px black;
+    float: right;
+  
+
+}
+
+form {
+    height: 20px;
+    padding: 5px;
+    
+}
+
+
+.Nav a {
     display: inline-block;
     padding-right: 100px;
     vertical-align: top;
     font-size: 3rem;
+    
+
+    border-bottom: 2px black;
+  
+
+}
+
+
+
+
+.Nav2 {
+    text-align: center;
+    width:  50%;
+    height: 50%;
+    background-color: white;
+    top: 10%; 
+    left:-15%;
+    position: relative; 
+    margin: 0px auto;  
+    margin-bottom: 100px;
+}
+
+input{
+    display: inline-block;
+}
+
+
+.Nav {
+   margin-bottom: 5rem;
+   /* padding-left: 8rem; */
+
+
+}
+
+.Logo {
+    padding-right: 100px;
+}
+
+.Nav2 input {
+
+    margin: 5px 5px;
+    
+}
+
+.Nav img {
+    width: 30%;
+    margin-right: 30rem;
 }

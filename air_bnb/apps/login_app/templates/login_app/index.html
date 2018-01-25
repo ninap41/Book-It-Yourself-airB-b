@@ -7,23 +7,50 @@
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/index.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/skeleton.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/normalize.css' %}" />
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+    
+        $(document).ready(function(){
+            $('.Circle_Wrap').hide()
+            $('.background_image').click(function(){
+                $('.Circle_Wrap').fadeIn(600)
+            } 
+            );
+        });
+    
+    
+    
+    
+    
+    </script>
  
     <title>BIY </title>
 </head>
 
 <body>
    
-          <img src="{% static 'login_app/images/background_image.jpg' %}" alt="My image" class="background_image"><!-- logo -->
-    <div class="Center_Wrap">
+          <img src="{% static 'login_app/images/background_image.jpg' %}" alt="My image" class="background_image">logo
 
 
-        <a href="/homepage"><img src="{% static 'login_app/images/tiny_logo.png' %}" alt="My image" class="Logo">   </a>   
-            
+    <div class="Circle_Wrap">
+
+
+
+<div class="container">
+	<img src="{% static 'login_app/images/logo5.png' %}" style="width:40rem;"class="logoimage">
+	<div class="overlay">
+		<div class="Slogan"> Book It Yourself:
+            <BR> A community for musicians and fans dedicated supporting local DIY music scenes across the country. 
+         </div>
+	</div>
+</div>
+
+        <!-- <a href="/homepage"><img src="{% static 'login_app/images/logo5.png' %}" style="width: 30%; margin-top: 2%;" alt="My image" class="Logo">   </a>    -->
+<!--             
         <p class="Slogan">Book It Yourself:
             <BR> A community for musicians and fans dedicated supporting local DIY music scenes across the country. 
-        </p>
+        </p> -->
             
         <div class="Align">
            
@@ -31,25 +58,26 @@
             <form class="Space" action="/registration" method="POST">
                 <h1>Register</h1>
                 {% csrf_token %}
-                First Name: <input type="text" name="first_name"><br />
+                First Name: <input type="text" name="first_name"> <br />
                 Last Name: <input type="text" name="last_name"><br />
                 Birthday: <input type="date" name="birthday"><br />
                 Phone Number: <input type="tel" name="phone_number"><BR>
-                Email: <input type="email" name="email"><br />
+                Email: <input type="email" name="email"></span><br />
                 Password: <input type="password" name="password"><br />
-                Confirm Password: <input type="password" name="confirmed_password"><br />
-                <input id="Submit" type="submit" value="Register  ">
+                Confirm Password: <input type="password" name="confirmed_password"><br /></BR>
+                <input style="padding-right:2rem;" id="Submit" type="submit" value="Register  ">
             </form>
         </div>
-        <div class="Align">
+        <div class="Align"> 
             <form class="Space" action="/login" method="POST">
-                  <h1>Login</h1>
+                <h1>Login</h1>
                 {% csrf_token %}
-                Email: <input type="email" name="email"><br />
-                Password: <input type="password" name="password"><br />
-                <input type="submit" value="Log In">
+               Email:</span> <input type="email" name="email"><br />
+               Password:</span> <input type="password" name="password"><br /><BR>
+                <input style="margin:1rem;"type="submit" value="Login">
             </form>
         </div>
+        <div style="margin-top:15rem; margin-left: 15rem; color:red">
             {% if messages %}
             <ul>
             {% for message in messages %}
@@ -58,6 +86,7 @@
             </ul>
 
             {% endif %}
+        </div>
     </div>
  
 

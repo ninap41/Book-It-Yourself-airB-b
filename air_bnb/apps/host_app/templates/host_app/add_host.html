@@ -6,20 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {% load static %}
     <!-- below lines not working -->
-    <link rel="stylesheet" type="text/css" href="{% static 'host_app/styles/styles.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'host_app/styles/skeleton.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'host_app/styles/normalize.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/skeleton.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/normalize.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'host_app/styles/add_host.css' %}" />
+    
     
     <title>Document</title>
 </head>
 <body>
+        <div id="Wrapper">          
     <h1>Become a Host...</h1>
 <!-- need to add not preferred options below -->
 
     <form action="/host/create_venue" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        Venue Name: <input type="text" name="space_name"><br>
-        Venue Bio: <textarea name="venue_details" cols="30" rows="10"></textarea><BR>
+        Venue Name: <input type="text" name="space_name"><br><BR>
+        Venue Bio: <textarea name="venue_details" cols="30" rows="10"></textarea><BR><BR>
         Booze:<select name="dry_zone"><br>
             <option value="yes">Yes</option>
             <option value="no">No</option>
@@ -28,7 +30,7 @@
         <option value="yes">Yes</option>
         <option value="no">No</option>
     </select><br>
-        Photos: <input type="file" name="venue_image" accept="image/*">
+        Photos: <input type="file" name="venue_image" accept="image/*"><BR><BR>
         Suggested Donations: <select name="suggested_donation"><br>
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
@@ -65,7 +67,7 @@
         Zip Code: <input type="text" name="zip_code"><br>
         <input type="submit" name="sumbit" value="Host Now!">
     </form>
-
+    </div>
 
     
 </body>
