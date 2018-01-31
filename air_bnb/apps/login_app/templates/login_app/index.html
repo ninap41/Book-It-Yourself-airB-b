@@ -17,6 +17,11 @@
                 $('.Circle_Wrap').fadeIn(600)
             } 
             );
+
+            $('.background_image').click(function(){
+                $('.Circle_Wrap').fadeIn(600)
+            } 
+            );
         });
     
     
@@ -31,32 +36,22 @@
 <body>
    
           <img src="{% static 'login_app/images/background_image.jpg' %}" alt="My image" class="background_image">logo
-
-
     <div class="Circle_Wrap">
 
 
 
 <div class="container">
-	<img src="{% static 'login_app/images/logo5.png' %}" style="width:40rem;"class="logoimage">
+	<img src="{% static 'login_app/images/logo5.png' %}" style="width:90%;"class="logoimage">
 	<div class="overlay">
 		<div class="Slogan"> Book It Yourself:
             <BR> A community for musicians and fans dedicated supporting local DIY music scenes across the country. 
          </div>
 	</div>
 </div>
-
-        <!-- <a href="/homepage"><img src="{% static 'login_app/images/logo5.png' %}" style="width: 30%; margin-top: 2%;" alt="My image" class="Logo">   </a>    -->
-<!--             
-        <p class="Slogan">Book It Yourself:
-            <BR> A community for musicians and fans dedicated supporting local DIY music scenes across the country. 
-        </p> -->
             
-        <div class="Align">
-           
-              
+        <!-- <div class="Align">
             <form class="Space" action="/registration" method="POST">
-                <h1>Register</h1>
+                <h1 class="Reg">Register</h1>
                 {% csrf_token %}
                 First Name: <input type="text" name="first_name"> <br />
                 Last Name: <input type="text" name="last_name"><br />
@@ -67,16 +62,58 @@
                 Confirm Password: <input type="password" name="confirmed_password"><br /></BR>
                 <input style="padding-right:2rem;" id="Submit" type="submit" value="Register  ">
             </form>
-        </div>
+        </div> -->
+        <div class="Align">
+            <form  action="/registration" method="POST">
+              <h3 class="Reg">Register</h3>
+             <div class="col-xs-2">
+             {% csrf_token %}
+                <label for="first_name">First Name:</label>
+                <input type="text" class="form-control" id="first_name" placeholder="Enter first name" name="first_name">
+             </div>
+             <div class="col-xs-2">
+                <label for="last_name">Last Name:</label>
+                <input type="text" class="form-control" id="last_name" placeholder="Enter last name" name="last_name">
+             </div>
+             <div class="col-xs-2">
+                <label for="birthday">Birthday:</label>
+                <input type="date" class="form-control" id="birthday" placeholder="Enter date of birth" name="birthday">
+             </div>
+             <div class="col-xs-2">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+             </div>      
+             <div class="col-xs-2">
+                <label for="tele">Phone Number:</label>
+                <input type="tel" class="form-control" id="tele" placeholder="Enter number" name="phone_number">
+             </div>
+              <div class="col-xs-2">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
+              </div>
+               <div class="col-xs-2">
+                <label for="pwd">Confirm Password:</label>
+                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="confirmed_password">
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" name="remember"> Remember me</label>
+              </div>
+              <button type="submit"  class="btn btn-default" >Submit</button>
+              <!-- <input style="padding-right:2rem;" id="Submit" type="submit" value="Register  "> -->
+            </form>
+            
+           </div>
+
         <div class="Align"> 
             <form class="Space" action="/login" method="POST">
-                <h1>Login</h1>
+                <h1  class="Log">Login</h1>
                 {% csrf_token %}
                Email:</span> <input type="email" name="email"><br />
                Password:</span> <input type="password" name="password"><br /><BR>
                 <input style="margin:1rem;"type="submit" value="Login">
             </form>
         </div>
+
         <div style="margin-top:15rem; margin-left: 15rem; color:red">
             {% if messages %}
             <ul>
@@ -84,9 +121,9 @@
                 <li>{{ message }}</li>
             {% endfor %}
             </ul>
-
             {% endif %}
         </div>
+
     </div>
  
 
