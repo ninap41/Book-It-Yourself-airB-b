@@ -12,21 +12,31 @@
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/update_user.css' %}" />
    
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-    <title>Edit</title>
+    <style>
+            @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+            @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+         </style>
+    <title>BIY - Add Show</title>
 </head>
 <body>
-    <div class="Header">
-            <a href="/homepage"><img src="{% static 'login_app/images/logo.png' %}" alt="My image" class="Logo">   </a hidden>   
-            <a href="/homepage"><img src="{% static 'login_app/images/logo3.png' %}" alt="My image" class="Logo2">   </a>   
-            <a href="/homepage"><p>Home</p></a>
-            <a href="/logout"><p>Log Out</p></a>
-          
-            
-    </div> <!-- Header -->
+        <div class="Container">
+                <div class="Header headGroup">
+                            <a href="/homepage"><img src="{% static 'login_app/images/logo5.png' %}" class="Logo2">   </a>   
+                </div>
+                <!-- <div class="headGroup">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </div> -->
+                
+                    <div class="Nav headGroup">
+                        <a href="/shows/"><p style="margin-right: 20rem;" >Venues</p></a>
+                        <a href="/update_user"><p>Profile</p></a>
+                        <a href="/logout"><p>Logout</p></a>
+                        <a  href="/host/add_host"><p>Host</p></a>
+                    </div>
+            </div>
    
     <div class="Body_Content">
-
-
 
             <h3> Welcome,  {% if user.type_of_user == 1 %}
                     {{ user.first_name }}.
@@ -45,7 +55,7 @@
                     {% endif %}</h3>
     {% if user.type_of_user == 1 %}
     <div class="Inline">
-            Account Type: Non Host
+            <h3> Thanks for being a Fan! Become a Host to add shows for a Venue!</h3>
          </div>
   
         <!-- <p>{{user.email}}</p> -->
@@ -54,25 +64,27 @@
     {% endif %}
     {% if user.type_of_user == 2 %}
     <div class="Inline">
-            Account Type: Non Host
          </div>
-        
+         <h3> Thanks for being a Host and Something else!! Become a Host to add shows for a Venue!</h3>
+
         <!-- <p>{{user.birthday}}</p> -->
         <p>{{ user.type_of_user }}</p>
     {% endif %}
     <!-- {% if user.type_of_user == 3 %} -->
       
         <!-- <p>{{user.phone_number}}</p> -->
-        <!-- <p>{{ user.type_of_user }}</p> -->
+        <p>{{ user.type_of_user }}</p>
+
+
         
         <div class="Inline">
-            <h3> Thanks for being a Host!<BR> Add an upcoming show to your venue page:</h3>
-        <form action="/shows/add_show" method="post">
-            {% csrf_token %}
-            <input type="date" name="show_date">
-            Add Line-up: <input type="text" name="bands">
-            <input type="submit" value="Add Show">
-        </form>
+            <h3> Thanks for being a Host! Keep your local scene going!<BR> Add an upcoming show to your venue page:</h3>
+            <form action="/shows/add_show" method="post">
+                {% csrf_token %}
+                <label>Show Date:</label><input type="date" name="show_date">
+                <label>Add Line-up: </label><input type="text" name="bands">
+                <input type="submit" value="Add Show">
+            </form>
         </div>
     {% endif %}
 
@@ -84,8 +96,9 @@
             <h3>Thanks for being a Host!<BR>Add an upcoming show to your Venue Page:</h3>        
         <form action="/shows/add_show" method="post">
             {% csrf_token %}
-            <input type="date" name="show_date">
-            Add Line-up: <input type="text" name="bands">
+            <label>Show Date:</label><input type="date" name="show_date">
+            <label>Add Line-up: </label> <input type="text" name="bands">
+            <BR>
             <input type="submit" value="Add Show">
         </form>
         </div>

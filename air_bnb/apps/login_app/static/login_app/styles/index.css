@@ -1,19 +1,26 @@
 body {
-    background-image:  url("login_app/images/background_image.jpg");
+    background-color:rgb(0, 0, 0);
+
+    
+    height:100%;
+    font-size: 1em;
+
 }
+
+
 
 
 .Opener{
     text-align: center;
     text-align: center;
     width:  40%;
-    height: 40%;
+    height: 100%;
     background-color: white;
     top: 20%; 
     left: 30%;
     position: absolute; 
     margin: 0px auto;  
-
+    margin-bottom:0px;
 
 }
 
@@ -30,27 +37,30 @@ input {
     position: absolute;
     z-index: 0;
     margin-top: -150px;
+
 }
 
-#Submit {
-    padding-left: 20px;
+.Submit {
+    margin-top: 2rem;
 }
 
+input {
+    flex-direction: right;
+}
 
 
 .Circle_Wrap {
-    height: 650px;
     text-align: center;
-    padding: 2%;
-    /* padding-top: 5rem;; */
+    padding: 3% 3% 0% 3%;
     width: 40%;
-    background-color: rgb(255, 255, 255); 
+    background-color: white;
     z-index: 3;
     margin: 0px auto;
-    margin-top: 150px;
+    margin-top: 6rem;
     position: relative;
-    /* padding-bottom: 15rem; */
     border-radius: 100px;
+    padding-bottom: 1%;
+    margin-top: 2%;
     
    
 }
@@ -61,59 +71,61 @@ p {
     margin: 100px;
 }
 
-/* 
-form input {
-    text-align: left;
-    margin: 5px;
-} */
 
 .Align {
-    /* padding-right: 15px; */
+    margin-top: 2rem;
     vertical-align: top;
     display: inline-block;
-    /* width: 45%; */
+    margin-bottom:-16rem;
+    margin-right:-1.75rem;
+    
+
     
 }
 
 form span {
-    
-    margin-left:0px;
-    /* text-align: left; */
+    /* margin-left:0px; */
     color: blue;
 }
 
 label {
     margin-right: 2rem;
     float:left;
-
+    
 }
 input{
-/* float:right; */
-margin:.5rem;
-  margin-right: -5rem;
-
+    margin:.5rem;
+    margin-right: -5rem;
 }
+
 .col-xs-2 {
-    
     margin:.5rem;
 }
 
-/* .Align input {
-    width: 100%;
+.inputGroup{
+    display:flex;
+    justify-content: space-between;
+}
+h3{
+    padding-bottom:0px;
+    margin-bottom: 0px;
+}
 
-    height: 15px;
-} */
 
 .Slogan {
     /* width: %; */
     /* WORKING WITH OVERLAY*/
-    background-color: white;
+    background-color:white;
+    border-radius: 5rem;
     color: rgb(26, 84, 84);
-    padding: 2rem;
-    padding-top: 10%;
-    font-size: 20px;
-    width: 40rem;
-    height:17rem;
+    padding: 1rem;
+    padding-top: 5%;
+    /* font-family: 'Indie Flower', cursive; */
+    font-family: 'Gloria Hallelujah', cursive;
+
+    font-size: 2rem;
+    width: 100%;
+    height:100%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -128,39 +140,51 @@ margin:.5rem;
 
 }
 
+h3{
+    display:inline;
 
-h1 {
-    font-size: 1rem;
+
 }
+a {
+    color:#7FB9B8;
+}
+
+.Log, .Reg, .Or, a {
+    font-size: 3rem;
+    margin-top:1rem;
+    font-family: 'Gloria Hallelujah', cursive;
+    margin-bottom:3rem;
+    color: #7FB9B8;
+
+}
+
 .Space{
     /* text-align: left; */
     margin-top: 0rem;
     height: 100px;
     font-size: 1.5rem;
+    margin-bottom:0px;
 }
 
 
 input[type=text],input[type=date],input[type=tel],input[type=email],input[type=password] {
 
     box-sizing: border-box;
-   
+    font-family: 'Gloria Hallelujah', cursive;
     border: 1px solid #555;
     outline: none;
 }
 
 input[type=text]:focus,input[type=date]:focus,input[type=tel]:focus,input[type=email]:focus,input[type=password]:focus  {
     background-color: lightblue;
+    font-family: 'Gloria Hallelujah', cursive;
+
 }
 
 
 .container {   
     width: 100%; 
-  }
-  
-  .logoimage {
-    /* display: block; */
-    /* width: 100%; */
-    /* height: auto; */
+    margin-bottom:0px;
   }
   
   .overlay {
@@ -170,11 +194,8 @@ input[type=text]:focus,input[type=date]:focus,input[type=tel]:focus,input[type=e
     left: 0;
     right: 0;
     margin: 0px;
-    /* height: 100%;
-    width: 100%; */
     opacity: 0;
     transition: .5s ease;
-    /* background-color: rgba(164, 164, 164, 0.363); */
   }
   
   .container:hover .overlay {

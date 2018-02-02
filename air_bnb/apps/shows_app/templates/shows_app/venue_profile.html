@@ -10,20 +10,29 @@
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/normalize.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'shows_app/styles/venue_profile.css' %}" />
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <style>
+            @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+            @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+    </style>
     <title>Document</title>
 </head>
 <body>
-
-    <div class="Header">
-            <div class="Nav">
-            <a href="/homepage"><img src="{% static 'login_app/images/logo.png' %}" alt="My image" class="Logo">   </a hidden>   
-            <a href="/homepage"><img src="{% static 'login_app/images/logo3.png' %}" alt="My image" class="Logo2">   </a>         
-       
-        <a href="/shows"><p>More Venues</p></a>
-        <a href="/homepage"><p>Home</p></a>
-        <a href="/"><p>Log Out</p></a> 
-        </div>  
-    </div>
+        <div class="Container">
+                <div class="Header headGroup">
+                            <a href="/homepage"><img src="{% static 'login_app/images/logo5.png' %}" class="Logo2">   </a>   
+                </div>
+                <!-- <div class="headGroup">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </div> -->
+                
+                    <div class="Nav headGroup">
+                        <a href="/shows/"><p style="margin-right: 20rem;" >Venues</p></a>
+                        <a href="/update_user"><p>Profile</p></a>
+                        <a href="/logout"><p>Logout</p></a>
+                        <a  href="/host/add_host"><p>Host</p></a>
+                    </div>
+            </div>
 
 <div id="Wrapper">
     {% if venue.host_id.id == user.id %}
@@ -79,7 +88,7 @@
         {% if show.bands %}
             <h4>{{ show.bands }}</h4>
         {% else %}
-            <p>No Bands Yet!</p>
+            <h3>No Bands Yet!</h3>
         {% endif %}
         <!-- Where is type of user? -->
         <a href="/shows/join/{{venue.id}}/{{show.id}}">Join Show!</a>

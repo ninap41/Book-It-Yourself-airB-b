@@ -7,22 +7,100 @@
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/index.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/skeleton.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/normalize.css' %}" />
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+
+        @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+        </style>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script>
-    
+    var reg= false;
+    var log = false;
+    var newdiv2 = document.createElement( "div" );
+
+
         $(document).ready(function(){
             $('.Circle_Wrap').hide()
+            $('.RegForm').hide()
+            $('.LogForm').hide()
             $('.background_image').click(function(){
-                $('.Circle_Wrap').fadeIn(600)
+                $( '.Circle_Wrap' ).animate({
+        width: "toggle",
+        height: "toggle",
+        duration: 300,
+        specialEasing: {
+        width: "linear",
+        height: "easeOutBounce"
+    }
+  },
+  
+  );
             } 
             );
 
-            $('.background_image').click(function(){
-                $('.Circle_Wrap').fadeIn(600)
+            $('.Reg').click(function(){
+                var reg = true;
+                $('.RegForm').slideDown(600)
+                $('.Log').hide(600)
+                $('.Reg').hide(600)
+                if(reg == true){
+                    $(".butWhat").append("<BR><h3 class='Info'> What <i>IS</i> BIY?</h3>")
+                    console.log("this ran")
+                }
+
             } 
             );
+            $('.Log').click(function(){
+                $('.LogForm').slideDown(600)
+                $('.Reg').hide(600)
+                $('.Log').hide(600)
+
+            } 
+            );
+
+            $('#LogMistake').click(function(){
+                $('.RegForm').hide(600)
+                $('.Reg').hide(600)
+                $('.LogForm').slideUp(400)
+                $('.LogForm').slideDown(600)
+            } 
+            );
+            $('#RegMistake').click(function(){
+                $('.LogForm').hide(600)
+                $('.Log').hide(600)
+                $('.RegForm').slideUp(400)
+                $('.RegForm').slideDown(600)
+            } 
+            );
+            $('body').css('display', 'none');
+
+$('body').fadeIn(1000);
+
+
+
+$('a').click(function() {
+
+event.preventDefault();
+console.log("made to fade out function")
+
+newLocation = this.href;
+
+$('body').fadeOut(1000, newpage);
+
+});
+
+function newpage() {
+
+window.location = newLocation;
+
+}
+            
+            
         });
+
+
     
     
     
@@ -30,102 +108,107 @@
     
     </script>
  
-    <title>BIY </title>
+    <title>BIY - Home </title>
 </head>
 
 <body>
-   
-          <img src="{% static 'login_app/images/background_image.jpg' %}" alt="My image" class="background_image">logo
-    <div class="Circle_Wrap">
+            <img src="{% static 'login_app/images/background_image.jpg' %}" alt="My image"class="background_image">logo
+            <div class="Circle_Wrap">
 
 
 
-<div class="container">
-	<img src="{% static 'login_app/images/logo5.png' %}" style="width:90%;"class="logoimage">
-	<div class="overlay">
-		<div class="Slogan"> Book It Yourself:
-            <BR> A community for musicians and fans dedicated supporting local DIY music scenes across the country. 
-         </div>
-	</div>
-</div>
-            
-        <!-- <div class="Align">
-            <form class="Space" action="/registration" method="POST">
-                <h1 class="Reg">Register</h1>
-                {% csrf_token %}
-                First Name: <input type="text" name="first_name"> <br />
-                Last Name: <input type="text" name="last_name"><br />
-                Birthday: <input type="date" name="birthday"><br />
-                Phone Number: <input type="tel" name="phone_number"><BR>
-                Email: <input type="email" name="email"></span><br />
-                Password: <input type="password" name="password"><br />
-                Confirm Password: <input type="password" name="confirmed_password"><br /></BR>
-                <input style="padding-right:2rem;" id="Submit" type="submit" value="Register  ">
-            </form>
-        </div> -->
-        <div class="Align">
-            <form  action="/registration" method="POST">
-              <h3 class="Reg">Register</h3>
-             <div class="col-xs-2">
-             {% csrf_token %}
-                <label for="first_name">First Name:</label>
-                <input type="text" class="form-control" id="first_name" placeholder="Enter first name" name="first_name">
-             </div>
-             <div class="col-xs-2">
-                <label for="last_name">Last Name:</label>
-                <input type="text" class="form-control" id="last_name" placeholder="Enter last name" name="last_name">
-             </div>
-             <div class="col-xs-2">
-                <label for="birthday">Birthday:</label>
-                <input type="date" class="form-control" id="birthday" placeholder="Enter date of birth" name="birthday">
-             </div>
-             <div class="col-xs-2">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-             </div>      
-             <div class="col-xs-2">
-                <label for="tele">Phone Number:</label>
-                <input type="tel" class="form-control" id="tele" placeholder="Enter number" name="phone_number">
-             </div>
-              <div class="col-xs-2">
-                <label for="pwd">Password:</label>
-                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
-              </div>
-               <div class="col-xs-2">
-                <label for="pwd">Confirm Password:</label>
-                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="confirmed_password">
-              </div>
-              <div class="checkbox">
-                <label><input type="checkbox" name="remember"> Remember me</label>
-              </div>
-              <button type="submit"  class="btn btn-default" >Submit</button>
-              <!-- <input style="padding-right:2rem;" id="Submit" type="submit" value="Register  "> -->
-            </form>
-            
-           </div>
+            <div class="container">
+            <img src="{% static 'login_app/images/logo5.png' %}" style="width:100%;"class="logoimage">
+            <div class="overlay">
+                <div class="Slogan" style="height:100%;"> 
+                    <b style="font-size:3rem;">Book It Yourself:</b>
+            <BR> A community for musicians and fans dedicated supporting local DIY music scenes across the country.<BR><BR>
+                <span><h3 class="Reg" style="text-decoration:none; color: #7FB9B8;"> Register  </h3> <h3 class="Reg" style="color:black">or</h3>
+                <h3 class="Log" style="text-decoration:none; color: #7FB9B8;">Login</h3></span>
 
-        <div class="Align"> 
-            <form class="Space" action="/login" method="POST">
-                <h1  class="Log">Login</h1>
-                {% csrf_token %}
-               Email:</span> <input type="email" name="email"><br />
-               Password:</span> <input type="password" name="password"><br /><BR>
-                <input style="margin:1rem;"type="submit" value="Login">
-            </form>
-        </div>
+                </div>
+            </div>
+            </div>
+                    
+          
+                <div class="Align">
 
-        <div style="margin-top:15rem; margin-left: 15rem; color:red">
-            {% if messages %}
-            <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-            </ul>
-            {% endif %}
-        </div>
+                    <form  class="RegForm" action="/registration" method="POST">
+                        <div class="col-xs-2 inputGroup">
+                        {% csrf_token %}
+                        <label for="first_name">First Name:</label>
+                        <input type="text" class="form-control" id="first_name" placeholder="Enter first name" name="first_name">
+                        </div>
+                        <div class="col-xs-2 inputGroup">
+                        <label for="last_name">Last Name:</label>
+                        <input type="text" class="form-control" id="last_name" placeholder="Enter last name" name="last_name">
+                        </div>
+                        <div class="col-xs-2 inputGroup">
+                        <label for="birthday">Birthday:</label>
+                        <input type="date" class="form-control" id="birthday" placeholder="Enter date of birth" name="birthday">
+                        </div>
+                        <div class="col-xs-2 inputGroup">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                        </div>      
+                        <div class="col-xs-2 inputGroup">
+                        <label for="tele">Phone Number:</label>
+                        <input type="tel" class="form-control" id="tele" placeholder="Enter number" name="phone_number">
+                        </div>
+                        <div class="col-xs-2 inputGroup">
+                        <label for="pwd">Password:</label>
+                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
+                        </div>
+                        <div class="col-xs-2 inputGroup">
+                        <label for="pwd">Confirm Password:</label>
+                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="confirmed_password">
+                        </div>
+                        <div class="checkbox">
+                        <label><input type="checkbox" name="remember"> Remember me</label>
+                        </div><BR><BR>
+                        <input style="margin:1rem; margin-left:2rem;margin-top:-1rem;" id="Submit" type="submit" value="Register">
+                        <BR>or did you mean<div id="LogMistake" style="text-decoration:none; color: #7FB9B8;"> <b>Login?</b> </div>
+                            <!-- <div class="butWhat"></div>                     -->
 
-    </div>
- 
+                    </form>
+                  
+                    
+                    </div>
+                    <div class="Align"> 
+                            <h2 class="Or">  &nbsp;&nbsp; </h2>
+                    </div>
+
+                <div class="Align"> 
+                        <!-- <h2 class="Log" style="text-decoration:none; color: #7FB9B8;"> Login</h2> -->
+
+                    <form class="LogForm"  action="/login" method="POST">
+                        {% csrf_token %}
+                        
+                        <div class="col-xs-2 inputGroup">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                        </div>    
+
+                        <div class="col-xs-2 inputGroup">
+                            <label for="pwd">Password:</label>
+                            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
+                            </div>
+                        <input style="margin:1rem;"type="submit" id="Submit" value="Login">
+                        <BR>or did you mean<div id="RegMistake" style="text-decoration:none; color: #7FB9B8;"> <b>Register?</b> </div>
+                    </form>
+                </div>
+
+                <div style="margin-top:15rem; margin-left: 15rem; color: rgb(137, 195, 198);">
+                    {% if messages %}
+                    <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+
+            </div>
 
 
 

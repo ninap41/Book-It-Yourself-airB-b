@@ -10,19 +10,33 @@
     <link rel="stylesheet" type="text/css" href="{% static 'shows_app/styles/join_show.css' %}" />
     
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-    <title>Join Show</title>
+    <style>
+            @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+            @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+    </style>
+    <title>BIY - Join Show</title>
 </head>
 <body>
-
-     <a href="/homepage"><img src="{% static 'login_app/images/tiny_logo.png' %}" alt="My image" class="Logo">   </a>   
-        
-    <!-- <h1>This is where the form will be to join a show</h1> -->
-
-    
+        <div class="Container">
+                <div class="Header headGroup">
+                            <a href="/homepage"><img src="{% static 'login_app/images/logo5.png' %}" class="Logo2">   </a>   
+                </div>
+                <!-- <div class="headGroup">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </div> -->
+                
+                    <div class="Nav headGroup">
+                        <a href="/shows/"><p style="margin-right: 20rem;" >Venues</p></a>
+                        <a href="/update_user"><p>Profile</p></a>
+                        <a href="/logout"><p>Logout</p></a>
+                        <a  href="/host/add_host"><p>Host</p></a>
+                    </div>
+            </div>
     <!-- if ban -->
     <div id="Wrapper">
 
-    <h1>Join show for {{show.show_date}} at {{venue.space_name}}</h1>
+    <h1>Join show for <span style="color:rgb(42, 80, 80)">{{show.show_date}}</span> at <span style="color:rgb(36, 65, 65)">{{venue.space_name}}</span></h1>
 
     <form action="/shows/band_submission/{{venue.id}}/{{show.id}}" method="POST">
         {% csrf_token %}

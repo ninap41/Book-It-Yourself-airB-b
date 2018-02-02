@@ -1,6 +1,7 @@
 body {
     background-color: white;
-  
+    /* font-family: 'Gloria Hallelujah', cursive; */
+
 }
 
 
@@ -9,117 +10,92 @@ body {
     padding: 0px auto;
 }
 
-.Header {
-    vertical-align: top;
-    margin: 10px auto;
-    display: inline-block;
-    
-    
-    height: 100px;
-    width: 100%;
-    padding-top: 1rem;
-    font-size: 1.5rem;
-    padding-top: 10px;
-    padding-left: 20px;
-    background-color: white;
-    background: linear-gradient(white, white,white,white, rgba(255, 255, 255, 0.059));
-    
-}    
-
-
-/* button {
-    display:inline-block;
-    background-image: url("search.png") no-repeat;
-    background-size: 20px;
-    width: 25px;
-    height: 25px;
-    
-}  */
-
-.Nav p  {
-    display:inline-block;
-    margin: 0px 10px;  
-    padding-right: 20px;   
-}
-
-h1 {
-    font-size: 4rem;
-}
-
-.Nav {
-    vertical-align: top;
-    display: inline;
-    padding-left: 10px;
-    overflow: hidden;
-    padding: 10px 0px; 
-    }
-
-/* .Header a {
-    text-decoration: None; 
-} */
-
-.Header p {
-    display: inline-block;
-    vertical-align: top;
-    padding-top: 1rem;
-    font-size: 1.5rem;
-    
-    float: right;
-    padding-right: 2%;
-}
-
-.Header h3 {
-    display: inline-block;
-    vertical-align: top;
-    font-size: 4rem;
-}
-
 .Body_Content {
-    padding-top: 100px;
+    padding-top: 10rem;
     text-align: center;
     border-top: 2px grey;
     width: 100%;
-    height: 450px;
+    height: 45rem;
     background-color: white;
-    left: 245px; */
-    top: 20px; */
-    position: relative; 
     margin: 0px auto;  
-    border-top: 1px solid black;
+    font-family: 'Gloria Hallelujah', cursive;
+
 }
-
-.Logo  {
-    width: 5%;
-    height: 20%;
-    
-    margin-left: 200px;
-    margin: 0px auto;
-    padding: 0px;
-    
-  
-}
-
-.Logo2  {
-    width: 14%;
-    height: 14%;
-
-    position: absolute;
-    margin-left: 200px;
-    margin: 0px auto;
-    padding: 0px;
-  
-}
-
 
 .Inline form, .Inline input {
     display: inline-block;
 }
 
 .Inline input {
-    margin-top: 20px;
+    margin: 1rem;
     display: inline;
 }
 .Inline form{
     margin-top: 20px;
     display: inline;
+}
+
+
+/* ----------------------HEADER---------------- */
+
+.Container { /* CONTAIN ----Header & NAv Links *FROGGY STYLING* display flex space between the children */
+    width: 100%;
+    height: 10%;
+    background-color: black;
+    display:flex;
+    justify-content: space-between;
+}
+
+.Header{ /* pulling logo left */
+    margin-left: 0rem;
+
+}
+.Nav{ /* pulling Nav Bar Right*/
+    margin-right: 0rem;
+
+}
+  .Header {
+    flex-direction: left;
+    background-color:rgb(0, 0, 0);
+    display:block;
+
+}
+.Nav {
+    flex-direction: right;
+    vertical-align: top;
+    display:block;
+
+}
+.Nav a, .Nav input{
+    float: right;
+    display:inline-block;
+    vertical-align: top;
+    text-decoration: none;
+    color:white;
+    font-size: 1.5rem;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+input{
+    /* margin-top: .5rem; */
+}
+
+
+
+
+h3 {
+    color: black;
+}
+
+
+.Logo2  {
+    width: 19%;
+    height: 14%;
+    position: absolute;
+
+}
+
+a {
+    text-decoration: None; 
+    color: black;
 }

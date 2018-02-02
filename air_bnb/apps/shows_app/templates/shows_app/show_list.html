@@ -10,44 +10,85 @@
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/normalize.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'shows_app/styles/show_list.css' %}" />
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-    <title>Document</title>
+    <script>
+
+    </script>
+    <style>
+            @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+            @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+            input[type="search"] {
+                display:inline-block;
+            height: 1rem;
+            margin-left:-1rem;
+            
+            margin-top: 3%;
+
+            }
+            input[name="state"]{
+                display:inline-block;
+                width: 3rem;
+                margin-left: -6rem;
+            }
+            input[type="submit"]{
+                display:inline-block;
+                margin-left: -6rem;
+                margin-top: 3%;
+                padding-top:-.5rem;
+            }
+    </style>
+    <title>BIY - Venue Search</title>
 </head>
 <body>
 
     
-       
+        <div class="Container">
+                <div class="Header headGroup">
+                            <a href="/homepage"><img src="{% static 'login_app/images/logo5.png' %}" class="Logo2">   </a>   
+                </div>
+                <!-- <div class="headGroup">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </div> -->
+                    <div class="Nav headGroup">
+                        <a href="/shows/"><p style="margin-right: 20rem;" >Venues</p></a>
+                        <a href="/update_user"><p>Profile</p></a>
+                        <a href="/logout"><p>Logout</p></a>
+                        <a  href="/host/add_host"><p>Host</p></a>
+                    </div>
+            </div>
 
-    <div class="Nav">
-        <div class="links">
-            <a href="/homepage"><img src="{% static 'login_app/images/tiny_logo.png' %}" alt="My image" class="Logo" >   </a>   
+
+
+<div id="Wrapper">
+
+      
+
+
+   
+    
+
+   
+   
+
+    <table width="100%" >
+            <div class="Head"> <h2>All Venues</h2>
                 
-            <a href="/homepage"><p>Home</p></a> 
+         
+                
+                        <form action="/shows/" method="POST">
+                        {% csrf_token %}
+                        <input type="search" name="city" placeholder="City">
+                        <input type="search" name="state" placeholder="State">
+                        <input type="submit" style="height: 2.5rem; color:azure; border: 1px solid white;" value="Look Up">
+
+                        </form>
+                
+                
             
-             <a href="/"><p>Log Out</p></a> 
-        </div>
-
-    </div>
-    
-    <div class="Nav2">
-    <h2>Look up venues:</h1>
-    <form action="/shows/" method="POST">
-        {% csrf_token %}
-        <input type="search" name="city" placeholder="City"><br />
-        <input type="search" name="state" placeholder="State"><br />
-        <input type="submit" value="Look Up">
-    </form>
-   
-    </div>
-
-
-    <div id="Wrapper">
-    
-
-    <h2>All Venues</h2>
-   
-
-    <table width="1000px">
+            
+            </div>
             <thead>
+            <b><strong>
                 <th>host</th>
                 <th>Venue</th>
                 <th>capacity</th>
@@ -61,6 +102,7 @@
                 <th>State</th>
                 <th>Past Performers</th>
                 <th>Join a Show!</th>
+            </strong></b>
             </thead>
             
                 {% for venue in venues %}
