@@ -7,7 +7,6 @@
 
    body {
     background-color: white;
-
 }
 
 * {
@@ -21,14 +20,12 @@
     margin-left: 10%;
     padding:2rem;
     font-family: 'Gloria Hallelujah', cursive;
-
 }
 
 
 
 a {
     text-decoration: None; 
-    
 }
 
 
@@ -38,10 +35,7 @@ a {
 
 /* OVERLAY WITH VENURE */
 
-
-
 .Nav {
-
     display:inline-block;
     overflow: hidden;
     padding: 10px 0px;
