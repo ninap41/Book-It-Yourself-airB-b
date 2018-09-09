@@ -1,4 +1,4 @@
-#Wrapper {
+/* #Wrapper {
     text-align: center;
     text-align: center;
     width:  40%;
@@ -26,4 +26,12 @@ form{
 
 select {
     margin-bottom: 2%;
+} */
+.navbar-default, .navbar, ul {
+    background-color: black;
+    padding-top:1em;
+   
+}
+ul a {
+    color:white;
 }

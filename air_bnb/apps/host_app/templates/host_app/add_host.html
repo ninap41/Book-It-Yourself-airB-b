@@ -45,7 +45,8 @@
                     </li>
                 </ul>
 
-        <div class="Wrapper">   
+        <div class="Wrapper"> 
+        {% if venue %}    
          {% if venue.space_name %}    
 
          <div class="jumbotron">
@@ -60,12 +61,11 @@
                     <a class="nav-link" style="color: white" href="/update_user">Add Show</a>
              </button>
          </div>  
-
-  
+         {% endif %}
          {% endif %}
 
 
-    {% if venue.space_name == '' %}    
+    {% if venue == None %}    
     <h1>Become a Host...</h1>
     <form action="/host/create_venue" class="inputGroup" method="POST" enctype="multipart/form-data">
         {% csrf_token %}

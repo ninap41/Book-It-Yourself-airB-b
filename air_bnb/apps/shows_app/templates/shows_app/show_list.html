@@ -73,11 +73,17 @@
             <div class="Head"> <h2>All Venues</h2>          
                         <form action="/shows/" method="POST">
                         {% csrf_token %}
-                        <input type="search" name="city" placeholder="City">
-                        <input type="search" name="state" placeholder="State">
-                        <input type="submit" style="height: 2.5rem; color:azure; border: 1px solid white;" value="Look Up">
+                        <p>search by city</p>
+                        <input type="search" name="city" style="color:black" placeholder="City">
+                        <button type="submit">search</button>
 
-                        </form>   
+                        </form>  
+                        <p style="color:black">
+                               
+                                {{venues_list|length }} results
+                            
+                        </p> 
+                       
             
             </div>
             <thead>

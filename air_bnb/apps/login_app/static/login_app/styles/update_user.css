@@ -95,14 +95,15 @@ h3 {
 
 }
 
-a {
-    text-decoration: None; 
-    color: black;
-}
 
 
 
 
 .navbar-default, .navbar, ul {
     background-color: black;
+    padding-top:1em;
+   
+}
+ul a {
+    color:white;
 }

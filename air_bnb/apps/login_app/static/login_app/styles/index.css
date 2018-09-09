@@ -35,6 +35,10 @@ input {
     width: 100%;
     vertical-align: top;
     position: absolute;
+    left:0;
+    right:0;
+    top: 0;
+    bottom: 0;
     z-index: 0;
     margin-top: -150px;
 
@@ -206,3 +210,22 @@ input[type=text]:focus,input[type=date]:focus,input[type=tel]:focus,input[type=e
     opacity: 0;
   }
   
+
+.errorMessage {
+    position:absolute;
+    left:0;
+    right:0;
+    top: 0;
+    bottom: 0;
+    font-size:  20px;
+    width: 25em;
+    height: 15em;
+    text-align: center;
+    bottom: 0;
+    z-index: 2;
+    background-color:rgba(0, 0, 0, 0.699);
+    border-radius: 10px;
+    padding:1em;
+    color: rgb(27, 198, 255);
+    margin: auto;
+}

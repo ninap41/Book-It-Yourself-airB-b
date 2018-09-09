@@ -7,6 +7,7 @@ from models import Users
 # Create your views here.
 
 def index(request):
+    errors = ''
     return render(request, 'login_app/index.html')
 
 def registration(request):

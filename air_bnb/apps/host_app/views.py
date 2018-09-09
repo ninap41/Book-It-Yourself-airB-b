@@ -11,13 +11,16 @@ from ..login_app.models import Users
 
 def add_host(request):
         current_user = Users.objects.get(id=request.session['user_id'])
+        single_venue = ''
+        try:
+                single_venue = Venues.objects.get(host_id=current_user.id)
+        except Venues.DoesNotExist:
+                single_venue = None
         context= {
                 'venues': Venues.objects.all(),
                 'user': current_user,
-                'venue' : Venues.objects.get(host_id=current_user.id)
-
+                'venue': single_venue
         }
-        user_venue = context['venue']
         current_user = context['user']
         return render(request,'host_app/add_host.html', context, current_user)
 

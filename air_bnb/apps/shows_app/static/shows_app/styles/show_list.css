@@ -1,26 +1,27 @@
 
 body{
 
-    margin: 0px auto;
+    font-family: 'Gloria Hallelujah', cursive;
 }
+
   
 #Wrapper{
     margin:5rem;
     padding:5rem;
     font-family: 'Gloria Hallelujah', cursive;
 
-}
+} 
 
-
+/*
 #Submit{
     /* width: 150px; */
     /* padding-right: 50px; */
-}
+
 
 p {
     vertical-align: top;
 
-}
+} */
 
 .Head{
     width: 100%;
@@ -31,53 +32,8 @@ p {
     justify-content: space-between;
 }
 
-
-td {
-    padding-right: 5px;
-    padding-left: 5px;
-}
-
-th {
-    font-weight: bold;
-    font-size: 1.2rem;
-    padding-right: 7px;
-    padding-left: 7px;
-}
-
-td {
-  
-}
-
-/* table default on each index */
-
 a {
     text-decoration: none;
-}
-
-#Wrapper {
-    
-    text-align: center;
-    width:  50%;
-    height: 50%;
-    background-color: white;
-    margin: 0px auto;  
-}
-
-
-
-
-form {
-    height: 20px;
-    padding: 5px;  
-}
-
-.Nav2 {
-    text-align: center;
-    width:  50%;
-    height: 50%;
-    background-color: white;
-    margin: 0px auto;  
-    margin-bottom: 15rem;;
 }
 
 
@@ -147,4 +103,13 @@ h3 {
 a {
     text-decoration: None; 
     color: black;
+}
+
+.navbar-default, .navbar, ul {
+    background-color: black;
+    padding-top:1em;
+   
+}
+ul a {
+    color:white;
 }

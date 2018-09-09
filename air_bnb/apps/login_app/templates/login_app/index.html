@@ -22,6 +22,10 @@
 
 
         $(document).ready(function(){
+
+            $('.Circle-Wrap').click(function() {
+                $('.errorMessage').hide()
+            })
             $('.Circle_Wrap').hide()
             $('.RegForm').hide()
             $('.LogForm').hide()
@@ -198,17 +202,20 @@ window.location = newLocation;
                     </form>
                 </div>
 
-                <div style="margin-top:15rem; margin-left: 15rem; color: rgb(137, 195, 198);">
-                    {% if messages %}
-                    <ul>
-                    {% for message in messages %}
-                        <li>{{ message }}</li>
-                    {% endfor %}
-                    </ul>
-                    {% endif %}
-                </div>
+                <div style="margin-top:15rem; margin-left: 15rem; color: rgb(255, 255, 255);"></div>
 
             </div>
+            {% if messages %}
+            <div class="errorMessage">
+                 
+                   
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+          
+                  
+            </div>
+            {% endif %}
 
 
 

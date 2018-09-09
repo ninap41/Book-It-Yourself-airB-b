@@ -6,21 +6,33 @@ from ..host_app.models import Venues, Shows, Reviews
 from ..login_app.models import Users
 from ..musician_app.models import Musicians
 from django.contrib import messages
+from django.template import Library
+
 
 # Create your views here.
 def venues(request):
         try:
-                
-                filtered_venues = Venues.objects.filter(city=city, state=state)
+                searchState = True
+                city = request.POST['city']
+                city[0].upper()+city[1:]
+                filtered_venues = Venues.objects.filter(city=city)
                 context = {
                         'venues': filtered_venues
                 }
-                return render(request, 'shows_app/show_list.html', context)
+                venues_list = venues
+                return render(request, 'shows_app/show_list.html', context, searchState)
         except:
                 context = {
                         'venues': Venues.objects.all()
                 }
-                return render(request, 'shows_app/show_list.html', context)
+                venues_list = venues
+                if venues_list == 0:
+                        searchState = True
+                searchState = True
+                return render(request, 'shows_app/show_list.html', context, searchState)
+        return render(request, 'shows_app/show_list.html', context, searchState)
+
+
 
 def venue_profile(request, venue_id):
         current_user = Users.objects.get(id=request.session['user_id'])
