@@ -30,12 +30,9 @@
                     <li class="nav-item">
                       <a class="nav-link active" href="/shows/">Venues</a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="/update_user">Update Profile</a>
-                    </li>
                    
                     <li class="nav-item">
-                      <a class="nav-link disabled" href="/host/add_host">Host</a>
+                      <a class="nav-link disabled" href="/host/add_host">Dashboard</a>
                     </li>
                     <li class="nav-item">
                             <a class="nav-link" href="/logout">Logout</a>
@@ -54,11 +51,14 @@
              <p>     
             name: {{ user.first_name }} {{ user.last_name }}<br>
             type of user: {{ user.type_of_user }}<br>
-            user_id: {{ user.id }}
-            Space {{ venue.space_name}}
+            user_id: {{ user.id }}<br>
+            Space: {{ venue.space_name}}
              </p>
              <button class="btn-primary">
                     <a class="nav-link" style="color: white" href="/update_user">Add Show</a>
+             </button>
+             <button class="btn-primary">
+                    <a class="nav-link" style="color: white" href="/shows/venues/{{venue.id}}">View Space</a>
              </button>
          </div>  
          {% endif %}

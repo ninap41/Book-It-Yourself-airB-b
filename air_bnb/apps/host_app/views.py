@@ -24,6 +24,30 @@ def add_host(request):
         current_user = context['user']
         return render(request,'host_app/add_host.html', context, current_user)
 
+
+def venue_profile(request, venue_id):
+        current_user = Users.objects.get(id=request.session['user_id'])
+        current_venue = Venues.objects.get(id=venue_id)
+        shows = Shows.objects.filter(venue_id=current_venue)
+        musicians = [] 
+        print Musicians.objects.all().values()
+        for show in shows:
+                print show.id
+                if Musicians.objects.filter(show_id=show.id):
+                        band = Musicians.objects.filter(show_id=show.id)
+                        musicians.append(band)
+        print musicians
+        reviews = Reviews.objects.filter(venue_id=venue_id)
+        context = {
+                'venue': Venues.objects.get(id=venue_id),
+                'shows': shows,
+                'reviews': reviews,
+                'user': current_user,
+                'musicians': musicians
+        }
+        return render(request, 'shows_app/venue_profile.html', context)
+
+
 def create_venue(request):
         current_user = Users.objects.get(id= request.session['user_id'])
         space_name = request.POST['space_name']
@@ -55,6 +79,7 @@ def create_venue(request):
         Venues.objects.create(host_id=current_user, photo=photo, space_name=space_name, venue_details=venue_details,dry_zone=dry_zone,noise_level=noise_level,capacity=capacity, overnight_option=overnight_option, suggested_donation=suggested_donation, promotions=promotions, gear_availability=gear_availability, show_start=show_start, show_end=show_end, bill_capacity=bill_capacity, location_type=location_type, past_performers=past_performers,street_address=street_address, city=city, state=state, country=country, zip_code=zip_code)
 
         return redirect('/shows')
+
 
 # def simple_upload(request):
 #     if request.method == 'POST' and request.FILES['myfile']:
