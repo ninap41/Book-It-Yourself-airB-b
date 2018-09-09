@@ -99,3 +99,10 @@ a {
     text-decoration: None; 
     color: black;
 }
+
+
+
+
+.navbar-default, .navbar, ul {
+    background-color: black;
+}

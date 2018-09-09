@@ -6,11 +6,20 @@ from ..host_app.models import Venues
 from ..login_app.models import Users
 
 # Create your views here.
+
+        
+
 def add_host(request):
+        current_user = Users.objects.get(id=request.session['user_id'])
         context= {
-                'venues': Venues.objects.all()
+                'venues': Venues.objects.all(),
+                'user': current_user,
+                'venue' : Venues.objects.get(host_id=current_user.id)
+
         }
-        return render(request,'host_app/add_host.html', context)
+        user_venue = context['venue']
+        current_user = context['user']
+        return render(request,'host_app/add_host.html', context, current_user)
 
 def create_venue(request):
         current_user = Users.objects.get(id= request.session['user_id'])

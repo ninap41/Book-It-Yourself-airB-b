@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/normalize.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'shows_app/styles/venue_profile.css' %}" />
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <style>
             @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
             @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
@@ -17,22 +19,27 @@
     <title>Document</title>
 </head>
 <body>
-        <div class="Container">
-                <div class="Header headGroup">
-                            <a href="/homepage"><img src="{% static 'login_app/images/logo5.png' %}" class="Logo2">   </a>   
+        <ul class="nav nav-pills navbar-dark bg-dark">
+                <div class="navbar-brand ">
+                    <a href="/homepage"><img src="{% static 'login_app/images/logo5.png' %}" width="200" height="100">   </a>   
                 </div>
-                <!-- <div class="headGroup">
-                    <input type="text" placeholder="Search.." name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </div> -->
-                
-                    <div class="Nav headGroup">
-                        <a href="/shows/"><p style="margin-right: 20rem;" >Venues</p></a>
-                        <a href="/update_user"><p>Profile</p></a>
-                        <a href="/logout"><p>Logout</p></a>
-                        <a  href="/host/add_host"><p>Host</p></a>
-                    </div>
-            </div>
+                <li class="nav-item">
+                  <a class="nav-link active" href="/shows/">Venues</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/update_user">Update Profile</a>
+                </li>
+               
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="/host/add_host">Host</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/inbox">inbox</a>
+                </li>
+        </ul>
 
 <div id="Wrapper">
     {% if venue.host_id.id == user.id %}

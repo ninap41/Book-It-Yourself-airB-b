@@ -24,7 +24,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^musicians/', include('apps.musician_app.urls')),
     url(r'^host/', include('apps.host_app.urls')),
-    url(r'^messages/', include('apps.messaging_app.urls')),
+    url(r'^inbox/', include('apps.messaging_app.urls')),
     url(r'^shows/', include('apps.shows_app.urls')),
     url(r'^', include('apps.login_app.urls')),
 ]

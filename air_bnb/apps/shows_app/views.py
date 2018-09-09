@@ -10,8 +10,7 @@ from django.contrib import messages
 # Create your views here.
 def venues(request):
         try:
-                city = request.POST['city']
-                state = request.POST['state']
+                
                 filtered_venues = Venues.objects.filter(city=city, state=state)
                 context = {
                         'venues': filtered_venues
@@ -52,6 +51,14 @@ def add_show(request):
         bands = request.POST['bands']
         Shows.objects.create(venue_id=current_venue, show_date=show_date, bands=bands)
         return redirect('/shows/venues/{}'.format(current_venue.id) )
+
+def inbox(request):
+        current_user = Users.objects.get(id=request.session['user_id'])
+        current_venue = Venues.objects.get(host_id=current_user)
+        show_date = request.POST['show_date']
+        bands = request.POST['bands']
+        Shows.objects.create(venue_id=current_venue, show_date=show_date, bands=bands)
+        return render(request, 'messages_app/inbox.html', context)
 
 def delete_show(request, show_id):
         current_user = Users.objects.get(id=request.session['user_id'])

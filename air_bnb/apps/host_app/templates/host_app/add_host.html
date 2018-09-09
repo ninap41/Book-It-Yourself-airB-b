@@ -8,6 +8,10 @@
     <!-- below lines not working -->
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/skeleton.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'host_app/styles/add_host.css' %}" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
     <style>
             @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
             @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
@@ -17,27 +21,52 @@
 </head>
 
 <body>
-        <div class="Container">
-                <div class="Header headGroup">
-                            <a href="/homepage"><img src="{% static 'login_app/images/logo5.png' %}" class="Logo2">   </a>   
-                </div>
-                <!-- <div class="headGroup">
-                    <input type="text" placeholder="Search.." name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </div> -->
-                    <div class="Nav headGroup">
-                        <a href="/shows/"><p style="margin-right: 20rem;" >Venues</p></a>
-                        <a href="/update_user"><p>Profile</p></a>
-                        <a href="/logout"><p>Logout</p></a>
-                        <a  href="/host/add_host"><p>Host</p></a>
+  
+
+            <ul class="nav nav-pills navbar-dark bg-dark">
+                    <div class="navbar-brand ">
+                        <a href="/homepage"><img src="{% static 'login_app/images/logo5.png' %}" width="200" height="100">   </a>   
                     </div>
-            </div>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="/shows/">Venues</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/update_user">Update Profile</a>
+                    </li>
+                   
+                    <li class="nav-item">
+                      <a class="nav-link disabled" href="/host/add_host">Host</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/inbox">inbox</a>
+                    </li>
+                </ul>
+
+        <div class="Wrapper">   
+         {% if venue.space_name %}    
+
+         <div class="jumbotron">
+            <h2>Welcome Back  {{ user.first_name }}</h2>
+             <p>     
+            name: {{ user.first_name }} {{ user.last_name }}<br>
+            type of user: {{ user.type_of_user }}<br>
+            user_id: {{ user.id }}
+            Space {{ venue.space_name}}
+             </p>
+             <button class="btn-primary">
+                    <a class="nav-link" style="color: white" href="/update_user">Add Show</a>
+             </button>
+         </div>  
+
+  
+         {% endif %}
 
 
-        <div class="Wrapper">          
+    {% if venue.space_name == '' %}    
     <h1>Become a Host...</h1>
-<!-- need to add not preferred options below -->
-
     <form action="/host/create_venue" class="inputGroup" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <label> Venue Name:</label>
@@ -95,6 +124,9 @@
     <label>ZipCode </label>  <input type="text" name="zip_code"><br>    <hr>
         <input type="submit" name="sumbit" value="Host Now!">
     </form>
+
+    {% endif %}
+
     </div>
 
     

@@ -3,6 +3,6 @@ from django.contrib import admin
 from . import views
   
 urlpatterns = [
-        url(r'^inbox$', views.inbox),
+        url(r'^$', views.inbox),
   ]
   

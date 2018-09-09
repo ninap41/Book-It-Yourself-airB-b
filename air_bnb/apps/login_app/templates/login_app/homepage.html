@@ -11,22 +11,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/skeleton.css' %}" />
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
-    
-//     $(document).ready(function(){
-        // $('#Hidden_On_Render').hide()
-        // $('.Opener').click(function(){
-        //     $('#Hidden_On_Render').fadeIn(3000)
-        //     $('.Opener').fadeOut(3000)
-        // } 
-        // );
-//         $('body').css('display', 'none');
-// $('body').fadeIn(500);
 
-//     });
 
     </script>
     <style>
@@ -38,23 +28,28 @@
 <body>
         <!-- Navbar -->
 
-    
-<div class="Container">
-    <div class="Header headGroup">
-                <a href="/homepage"><img src="{% static 'login_app/images/logo5.png' %}" class="Logo2">   </a>   
-    </div>
-    <!-- <div class="headGroup">
-        <input type="text" placeholder="Search.." name="search">
-        <button type="submit"><i class="fa fa-search"></i></button>
-    </div> -->
-    
-        <div class="Nav headGroup">
-            <a href="/shows/"><p style="margin-right: 20rem;" >Venues</p></a>
-            <a href="/update_user"><p>Profile</p></a>
-            <a href="/logout"><p>Logout</p></a>
-            <a  href="/host/add_host"><p>Host</p></a>
-        </div>
-</div>
+        <ul class="nav nav-pills navbar-dark bg-dark">
+                        <div class="navbar-brand ">
+                            <a href="/homepage"><img src="{% static 'login_app/images/logo5.png' %}" width="200" height="100">   </a>   
+                        </div>
+                        <li class="nav-item">
+                          <a class="nav-link active" href="/shows/">Venues</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/update_user">Update Profile</a>
+                        </li>
+                       
+                        <li class="nav-item">
+                          <a class="nav-link disabled" href="/host/add_host">Host</a>
+                        </li>
+                        <li class="nav-item">
+                                <a class="nav-link" href="/logout">Logout</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/inbox">inbox</a>
+                        </li>
+                </ul>
+
     <div class="Wrapper" style="margin-top:3rem;">
 
                 <a class="three column" style="margin-left:0px;"href="/shows/"><h3 class="Bands">Bands</h3></a>
