@@ -37,7 +37,7 @@
                 </li>
         </ul>
 
-<div id="Wrapper">
+<div >
     {% if venue.host_id.id == user.id %}
         {% for musician in musicians %}
             {% for info in musician %}
@@ -54,94 +54,107 @@
             {% endfor %}
         {% endfor %}
     {% endif %}
+<div class="jumbotron">
 
-    
+    <div class="row container">
+            <div class="col-sm-5 col-md-5  col-lg-5">
+                <br>
+                    <h1 >{{venue.space_name}} </h1>
+                    <h2>  <i>{{venue.city}}</i>, <i>{{venue.state}}</i> | <i class="green"> Booking</i> </h2>
+                    <p><b>Host: </b><a href="/shows/venues/host/{{host.id}}">{{venue.host_id.first_name}} {{venue.host_id.last_name}}</a></p>
+                    <p><B>Email: {{venue.host_id.email}} </b></p>
 
-    <h3 class="Profile">{{venue.space_name}}  |</h3>
-    <p class="Profile">Host: {{venue.host_id.first_name}} {{venue.host_id.last_name}} <br />
-    Email: {{venue.host_id.email}} </p><br />
-    <p class="Desc"> "{{venue.venue_details}}" -  {{venue.host_id.first_name}} (Host) </p>
+                    <p > "{{venue.venue_details}}" -  {{venue.host_id.first_name}} (Host) </p>
 
-<div class="WrapProfile">
-    <div class="Contain_Photo">
-    <img src="/media/{{venue.photo}}" alt="">
-    </div>
-
-   
-
-    {% if messages %}
-    {% for message in messages %}
-        <p>{{message}}</p>
-    {% endfor %}
-    {% endif %}
-    
-
-    </div>
-
-
-
-<div class="AlignSections">
-    <h3>Upcoming Shows</h3>
-    <div class="Border">
-   
-    <!-- Add a show id at the end of the link below -->
-    {% for show in shows %}
-        <hr />
-        <h4>{{ show.show_date }}</h4>
-        {% if show.bands %}
-            <h4>{{ show.bands }}</h4>
-        {% else %}
-            <h3>No Bands Yet!</h3>
-        {% endif %}
-        <!-- Where is type of user? -->
-        <a href="/shows/join/{{venue.id}}/{{show.id}}">Join Show!</a>
-        {% if venue.host_id.id == request.session.user_id %}
-        <a href="/shows/delete_show/{{show.id}}">Cancel Show</a>
-        {% endif %}
-    {% endfor %}
-    </div>
+                    <p> Capacity: <i>{{venue.capacity}}</i> </p>
+                    <p> Stay Overnight? : <i>{{venue.overnight}}</i> </p>
+            </div>
+            <div class="col-sm-7 col-md-7 col-lg-7">
+                            <img src="/media/{{venue.photo}}" width="auto" height="500px" alt="">
+                            <!-- {% if messages %}
+                            {% for message in messages %}
+                                <p>{{message}}</p>
+                            {% endfor %}
+                            {% endif %} -->
+                          
+            </div>
 </div>
+</div>
+<div class="container">
+
+    <div class="col-md-4 col-sm-4 col-lg-4">
+        <h3 class="heading">Upcoming Shows</h3>
+        {% if shows|length <= 0 %}
+        <p class="card-subtitle mb-2 text-muted">No shows</p>
+        {% endif %}
+        <!-- Add a show id at the end of the link below -->
+        {% for show in shows %}
+            <hr />
+            <h4>{{ show.show_date }}</h4>
+            {% if show.bands %}
+                <h4>{{ show.bands }}</h4>
+            {% else %}
+                <h3>No Bands Yet!</h3>
+            {% endif %}
+            <!-- Where is type of user? -->
+            <a href="/shows/join/{{venue.id}}/{{show.id}}">Join Show!</a>
+            {% if venue.host_id.id == request.session.user_id %}
+            <a href="/shows/delete_show/{{show.id}}">Cancel Show</a>
+            {% endif %}
+        {% endfor %}
+    </div>
  
-<div class="AlignSections">
-    <h3>Post A Review:</h3>
-    <div class="Border">
-    <form action="/shows/create_review/{{venue.id}}" method="POST">
-        {% csrf_token %}
-        Name: <input type="text" name="user_id"> <br />
-        How was your experience at {{venue.space_name}}? <br />
-        <textarea name="review_description" cols="30" rows="10"></textarea> <br />
-        Rating from 1-5: <select name="rating">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select> <br />
-        <input type="submit" value="Post Review">
-    </form>
+    <div class="col-md-4 col-sm-4 col-lg-4" >
+        <h3  class="heading">Post A Review:</h3>
+        <form action="/shows/create_review/{{venue.id}}" method="POST">
+            {% csrf_token %}
+            Name: <input type="text" name="user_id"> <br />
+            How was your experience at {{venue.space_name}}? <br />
+            <textarea name="review_description" cols="30" rows="10"></textarea> <br />
+            Rating from 1-5: <select name="rating">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select> <br />
+            <button class="btn-default" type="submit" value="Post Review">Post Review</button>
+        </form>
     </div>
 
-</div>
 
-
-<div class="AlignSections">
-    <h3>Recent Reviews</h3>
-    <div class="Border">
-           
-            {% for review in reviews %}
-                <p> {{review.user_id.first_name}} gave {{venue.space_name}} {{review.rating}} stars</p>
-                <p> "{{review.review_description}}"</p>
-                <hr />
-            {% endfor %}
+    <div class="col-md-4 col-sm-4 col-lg-4">
+        <h3 class="heading">Recent Reviews</h3>
+                {% if reviews|length <= 0 %}
+                <p class="card-subtitle mb-2 text-muted">No Reviews</p>
+                {% endif %}
+                {% for review in reviews %}
+                    <p> {{review.user_id.first_name}} gave {{venue.space_name}} 
+                        {% if review.rating == 1 %}
+                           <span style="color:red;">{{ star }}</span>
+                        {% endif %} 
+                        {% if review.rating == 2 %}
+                           <span style="color:orange;">{{ star }}{{ star }}</span>
+                        {% endif %}
+                        {% if review.rating == 3  %}
+                           <span style="color:yellow;">{{ star }}{{ star }}{{ star }}</span>
+                        {% endif %}
+                        {% if review.rating == 4  %}
+                           <span style="color:rgb(62, 103, 14);">{{ star }}{{ star }}{{ star }}{{ star }}</span>
+                        {% endif %}
+                        {% if review.rating == 5 %}
+                           <span style="color:rgb(106, 193, 0);">{{ star }}{{ star }}{{ star }}{{ star }}{{ star }}</span>
+                        {% endif %}
+               
+                    </p>
+                    <p> "{{review.review_description}}"</p>
+                    <hr />
+                {% endfor %}
         </div>
+
+    </div> 
+    <!-- wrap profile end -->
     </div>
-
-</div> 
-<!-- wrap profile end -->
-
 </div>
-
-
-
 </body>
 </html>

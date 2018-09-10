@@ -44,13 +44,11 @@
     <form action="/shows/band_submission/{{venue.id}}/{{show.id}}" method="POST">
         {% csrf_token %}
         Artist Name: <br><input type="text" name="artist_name"><br><BR>
-        
         Bio:<br> <textarea name="bio" cols="30" rows="10"></textarea><br /><BR>
         Social Media Links: <br> <input type="text" name="other_profiles"><br /><BR>
         Email: <br> <input type="email" name="email"><br /><BR>
         <input type="submit" value="Join Show">
     </form>
     </div>
-   
 </body>
 </html>

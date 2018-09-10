@@ -11,12 +11,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/skeleton.css' %}" />
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-
     <script>
+    
+//     $(document).ready(function(){
+        // $('#Hidden_On_Render').hide()
+        // $('.Opener').click(function(){
+        //     $('#Hidden_On_Render').fadeIn(3000)
+        //     $('.Opener').fadeOut(3000)
+        // } 
+        // );
+//         $('body').css('display', 'none');
+// $('body').fadeIn(500);
 
+//     });
 
     </script>
     <style>
@@ -30,11 +42,12 @@
 
         <ul class="nav nav-pills navbar-dark bg-dark">
                         <div class="navbar-brand ">
-                            <a href="/homepage"><img src="{% static 'login_app/images/logo5.png' %}" width="200" height="100">   </a>   
+                            <a id="brand" href="/homepage"><img src="{% static 'login_app/images/logo5.png' %}" width="200" height="100">   </a>   
                         </div>
                         <li class="nav-item">
                           <a class="nav-link active" href="/shows/">Venues</a>
                         </li>
+                       
                         <li class="nav-item">
                           <a class="nav-link disabled" href="/host/add_host">Dashboard</a>
                         </li>
@@ -46,11 +59,10 @@
                         </li>
                 </ul>
 
-    <div class="Wrapper" style="margin-top:3rem;">
 
-                <a class="three column" style="margin-left:0px;"href="/shows/"><h3 class="Bands">Bands</h3></a>
+
                 
-                <div class="Band_Icons four columns" style="margin-left:0px;">
+                <div class="Band_Icons four columns" style="margin:0px;">
                         <img class="Band_Venue"   style="width:120%"  src="{% static 'login_app/images/oso-oso-1.jpg' %}" alt="an image">
                         <div class="overlay">
                                 <div class="text"><h3><a href="https://osoosoband.bandcamp.com/">Oso Oso</a></h3></div>
@@ -72,12 +84,11 @@
         
 
 
-   
 
-            <a class="three column" href="/shows/"><h3>Venues</h3></a>  
+
           
 
-            <div class="Venue_Icons four columns" style="margin-left:0px;">
+            <div class="Venue_Icons four columns" style="margin:0px;">
                     <img class="Band_Venue"   style="width:120%"  src="{% static 'login_app/images/bandphoto10.png' %}" alt="an image">
                     <div class="overlay">
                             <div class="text"><h3> <a href="/shows/venues/5"> Aunt Earnie</a></h3></div>
@@ -96,8 +107,8 @@
                     </div>  
             </div>
  
+            <!-- <a class="three column" href="/shows/"><h3>Venues</h3></a>   -->
 
-        </div>
 
 
   <!--Hidden on Render-->

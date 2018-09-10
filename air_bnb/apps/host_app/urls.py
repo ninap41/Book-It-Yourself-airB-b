@@ -6,6 +6,8 @@ from django.conf.urls.static import static
   
 urlpatterns = [
         url(r'^add_host$', views.add_host),
+       url(r'^venues/(?P<venue_id>\d+)$', views.venue_profile),
+
         url(r'^create_venue$', views.create_venue),
 
         # url(r'^simple_upload$', views.simple_upload),  

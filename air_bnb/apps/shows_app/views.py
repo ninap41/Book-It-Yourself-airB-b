@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+from django.utils.encoding import python_2_unicode_compatible
+from django.contrib import auth
+
+@python_2_unicode_compatible
+class MyClass(object):
+    def __str__(self):
+        return "Instance of my class"
 
 from django.shortcuts import render, redirect
 from ..host_app.models import Venues, Shows, Reviews
@@ -8,35 +15,38 @@ from ..musician_app.models import Musicians
 from django.contrib import messages
 from django.template import Library
 
-
 # Create your views here.
 def venues(request):
+        current_user = Users.objects.get(id=request.session['user_id'])
         try:
-                searchState = True
                 city = request.POST['city']
                 city[0].upper()+city[1:]
                 filtered_venues = Venues.objects.filter(city=city)
                 context = {
-                        'venues': filtered_venues
+                        'user' : current_user,
+                        'venues': filtered_venues,
                 }
-                venues_list = venues
-                return render(request, 'shows_app/show_list.html', context, searchState)
+                return render(request, 'shows_app/show_list.html', context)
         except:
                 context = {
                         'venues': Venues.objects.all()
                 }
-                venues_list = venues
-                if venues_list == 0:
-                        searchState = True
-                searchState = True
-                return render(request, 'shows_app/show_list.html', context, searchState)
-        return render(request, 'shows_app/show_list.html', context, searchState)
+                return render(request, 'shows_app/show_list.html', context)
+        return render(request, 'shows_app/show_list.html', context)
 
+
+def delete_venue(request, venue_id):
+        deleted_venue = Venues.objects.get(id=venue_id)
+        Venues.objects.get(id=venue_id).delete()
+        message = 'You have successfully deleted <b>' + deleted_venue.space_name + '</b>.'
+        return redirect('/shows', message)
 
 
 def venue_profile(request, venue_id):
         current_user = Users.objects.get(id=request.session['user_id'])
         current_venue = Venues.objects.get(id=venue_id)
+        current_venue.host_id.id
+        current_venue_host = Users.objects.get(id=current_venue.host_id.id)
         shows = Shows.objects.filter(venue_id=current_venue)
         musicians = [] 
         print Musicians.objects.all().values()
@@ -47,14 +57,28 @@ def venue_profile(request, venue_id):
                         musicians.append(band)
         print musicians
         reviews = Reviews.objects.filter(venue_id=venue_id)
+
         context = {
                 'venue': Venues.objects.get(id=venue_id),
                 'shows': shows,
                 'reviews': reviews,
                 'user': current_user,
-                'musicians': musicians
+                'host': current_venue_host,
+                'musicians': musicians,
+                'star' :  '★'
+
         }
         return render(request, 'shows_app/venue_profile.html', context)
+
+def host_profile(request, host_id):
+        current_user = Users.objects.get(id=request.session['user_id'])
+        venue_host = Users.objects.get(id=host_id)
+        venue = Venues.objects.get(host_id=venue_host.id)
+        context = {
+                'show_host' : venue_host,
+                'show_host_venue' : venue
+        }
+        return render(request, 'shows_app/host_profile.html', context)
 
 def add_show(request):
         current_user = Users.objects.get(id=request.session['user_id'])

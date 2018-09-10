@@ -5,7 +5,10 @@ from . import views
 urlpatterns = [
     
         url(r'^$', views.venues),
+        url(r'^venues$', views.venue_profile),
         url(r'^venues/(?P<venue_id>\d+)$', views.venue_profile),
+        url(r'^venues/host/(?P<host_id>\d+)$', views.host_profile),
+        url(r'^delete_venue/(?P<venue_id>\d+)$', views.delete_venue),
         # need to add a show id to the end of the join url
         url(r'^add_show$', views.add_show),
         url(r'^inbox$', views.inbox),

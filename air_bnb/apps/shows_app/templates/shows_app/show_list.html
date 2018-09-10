@@ -6,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {% load static %}
  
-    <link rel="stylesheet" type="text/css" href="{% static 'shows_app/styles/skeleton.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'login_app/styles/normalize.css' %}" />
+
     <link rel="stylesheet" type="text/css" href="{% static 'shows_app/styles/show_list.css' %}" />
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -18,26 +17,13 @@
     <style>
             @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
             @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
-            input[type="search"] {
-                display:inline-block;
-            height: 1rem;
-            margin-left:-1rem;
-            
-            margin-top: 3%;
-
-            }
-            input[name="state"]{
-                display:inline-block;
-                width: 3rem;
-                margin-left: -6rem;
-            }
-            input[type="submit"]{
-                display:inline-block;
-                margin-left: -6rem;
-                margin-top: 3%;
-                padding-top:-.5rem;
-            }
+          
     </style>
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip(); 
+        });
+</script>
     <title>BIY - Venue Search</title>
 </head>
 <body>
@@ -47,6 +33,7 @@
                 <div class="navbar-brand ">
                     <a href="/homepage"><img src="{% static 'login_app/images/logo5.png' %}" width="200" height="100">   </a>   
                 </div>
+             
                 <li class="nav-item">
                   <a class="nav-link active" href="/shows/">Venues</a>
                 </li>
@@ -64,7 +51,11 @@
 
 
 <div id="Wrapper">
+        {% if message %}
+        <p> message </p>
+        {% endif %}
 
+        <a href="#" data-toggle="tooltip" title="Hooray!">Hover over me</a>
 
     <table width="100%" >
             <div class="Head"> 
@@ -78,7 +69,7 @@
                         </form>  
                         <p style="color:black">
                                
-                                {{venues_list|length }} results
+                                {{venues|length }} results
                             
                         </p> 
 
@@ -96,7 +87,7 @@
                 <th>City</th>
                 <th>State</th>
                 <th>Past Performers</th>
-                <th>Join a Show!</th>
+                <th>Admin</th>
             </strong></b>
             </thead>
             
@@ -104,6 +95,8 @@
                 <tr>
                 <td>{{venue.host_id.first_name}}</td>
                 <td><a href="/shows/venues/{{venue.id}}">{{venue.space_name}}</a></td>
+
+
                 <td>{{venue.capacity}}</td>
                 
                 <td>{{venue.dry_zone}}</td>
@@ -114,7 +107,10 @@
                 <td>{{venue.city}}</td>
                 <td>{{venue.state}}</td>
                 <td>{{venue.past_performers}}</td>
-                <td><a href="/shows/venues/{{venue.id}}">Hop On A Bill</a></td> 
+                {%if venue.host_id == current_user.id%}
+                <td><button class="button-danger"><a  method="POST" href="/shows/delete_venue/{{venue.id}}">Delete Your Venue</a></button>
+                </td>
+                {% endif %}
                 </tr>
                 {%endfor%}
             

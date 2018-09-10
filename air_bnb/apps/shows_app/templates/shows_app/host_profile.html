@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'shows_app/styles/host_profile.css' %}" />
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <style>
+            @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+            @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+    </style>
+    <title>BIY - Join Show</title>
+</head>
+<body>
+            <ul class="nav nav-pills navbar-dark bg-dark">
+                    <div class="navbar-brand ">
+                        <a href="/homepage"><img src="{% static 'login_app/images/logo5.png' %}" width="200" height="100">   </a>   
+                    </div>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="/shows/">Venues</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link disabled" href="/host/add_host">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/inbox">inbox</a>
+                    </li>
+                </ul>
+        <div class="jumbotron">
+            <DIV CLASS="container">
+                   <h3> Name: {{show_host.first_name}}{{show_host.last_name}} </h3>
+                   <h3> Email: {{show_host.email}}</h3>
+                <h3>Space: {{show_host_venue.space_name}}</h3><br>
+            <button type="submit" class="btn btn-primary" ><a style="color:white;" href="/shows/venues/{{show_host_venue.id}}">Return to Venue</a></button>
+            </DIV>
+        </div>
+    </body>
+</html>

@@ -63,7 +63,7 @@
   .one.columns                    { width: 4.66666666667%; }
   .two.columns                    { width: 13.3333333333%; }
   .three.columns                  { width: 22%;            }
-  .four.columns                   { width: 28.6666666667%; }
+  .four.columns                   { width: 30.6666666667%; }
   .five.columns                   { width: 39.3333333333%; }
   .six.columns                    { width: 48%;            }
   .seven.columns                  { width: 56.6666666667%; }
@@ -169,12 +169,11 @@ a:hover {
 button,
 input[type="submit"],
 input[type="reset"],
-input[type="button"] 
 input[type="button"] {
   display: inline-block;
-  height: 30px;
+  height: 38px;
   width: 100px;
-  padding: 0 0px;
+  padding: 0 30px;
   color: #555;
   text-align: center;
   font-size: 10px;
@@ -239,7 +238,7 @@ input[type="date"],
 textarea,
 select {
   height: 25px;
-  padding: 6px 6px; /* The 6px vertically centers text on FF, ignored by Webkit */
+  padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
   background-color: #fff;
   border: 1px solid #D1D1D1;
   border-radius: 4px;
